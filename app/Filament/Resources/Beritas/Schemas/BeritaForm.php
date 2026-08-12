@@ -3,11 +3,12 @@
 namespace App\Filament\Resources\Beritas\Schemas;
 
 use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\MultiSelect;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 
@@ -43,9 +44,13 @@ class BeritaForm
                 RichEditor::make('content')
                     ->label('Content')
                     ->columnSpanFull(),
-                TextInput::make('thumbnail')
-                    ->label('Thumbnail URL')
-                    ->maxLength(255),
+                FileUpload::make('thumbnail')
+                    ->label('Thumbnail')
+                    ->image()
+                    ->directory('beritas')
+                    ->disk('public')
+                    ->maxSize(2048)
+                    ->columnSpanFull(),
                 TextInput::make('source')
                     ->label('Source')
                     ->maxLength(255),

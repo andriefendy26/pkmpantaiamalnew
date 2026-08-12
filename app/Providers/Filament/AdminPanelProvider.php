@@ -58,6 +58,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->navigationGroups([
                 'Konten & Berita',
+                'Post',
                 'Kategori & Tags',
                 'Media & Galeri',
                 'Layanan & Fitur',
