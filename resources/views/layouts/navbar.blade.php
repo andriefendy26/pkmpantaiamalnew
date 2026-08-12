@@ -11,7 +11,7 @@
     ];
 @endphp
 
-<div class="fixed w-full mt-2 z-[999]" x-data="{ mobileOpen: false }">
+<div class="fixed w-full mt-2 z-[999]">
 
     {{-- ── DESKTOP NAVBAR ───────────────────────────────── --}}
     <nav class="hidden md:flex mx-auto max-w-6xl items-center justify-between rounded-full border border-neutral-200 bg-white/80 px-6 py-3 shadow-sm backdrop-blur-md dark:border-neutral-800 dark:bg-neutral-900/80">
@@ -29,9 +29,9 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <button @click="dark = !dark" class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Ganti tema">
-                <i data-lucide="sun" class="w-5 h-5" x-show="dark" x-cloak></i>
-                <i data-lucide="moon" class="w-5 h-5" x-show="!dark"></i>
+            <button onclick="toggleTheme()" class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Ganti tema">
+                <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
+                <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
             </button>
             <a href="#kontak" class="inline-flex items-center rounded-full bg-emerald-600 px-5 py-2 text-sm font-semibold text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-emerald-700">
                 Hubungi Kami
@@ -59,9 +59,9 @@
             @endforeach
 
             <div class="flex items-center justify-center mb-2">
-                <button @click="dark = !dark" class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Ganti tema">
-                    <i data-lucide="sun" class="w-5 h-5" x-show="dark" x-cloak></i>
-                    <i data-lucide="moon" class="w-5 h-5" x-show="!dark"></i>
+                <button onclick="toggleTheme()" class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Ganti tema">
+                    <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
+                    <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
                 </button>
             </div>
 

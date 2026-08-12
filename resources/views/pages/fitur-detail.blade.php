@@ -11,7 +11,7 @@
 
         <div class="relative mx-auto max-w-7xl px-6 py-20 md:py-28">
             <div class="mx-auto max-w-3xl fade-in">
-                <a href="{{ route('fitur.index') }}" class="mb-6 inline-flex items-center gap-1 text-sm font-medium text-neutral-500 hover:text-emerald-600 dark:text-neutral-400 dark:hover:text-emerald-400">
+                <a href="{{ route('fitur') }}" class="mb-6 inline-flex items-center gap-1 text-sm font-medium text-neutral-500 hover:text-emerald-600 dark:text-neutral-400 dark:hover:text-emerald-400">
                     <i data-lucide="arrow-left" class="w-4 h-4"></i>
                     Kembali ke Fitur
                 </a>

@@ -3,9 +3,10 @@
 namespace App\Filament\Resources\GalleryItems\Schemas;
 
 use App\Enums\MediaType;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 
@@ -29,14 +30,20 @@ class GalleryItemForm
                     ->rows(3),
                 Select::make('media_type')
                     ->label('Media Type')
-                    ->options(array_combine(array_map(fn($type) => $type->value, MediaType::cases()), array_map(fn($type) => $type->getLabel(), MediaType::cases())))
+                    ->options(array_combine(array_map(fn ($type) => $type->value, MediaType::cases()), array_map(fn ($type) => $type->getLabel(), MediaType::cases())))
                     ->required(),
-                TextInput::make('file_path')
-                    ->label('File Path')
-                    ->maxLength(255),
-                TextInput::make('thumbnail')
-                    ->label('Thumbnail URL')
-                    ->maxLength(255),
+                FileUpload::make('file_path')
+                    ->label('Media File')
+                    ->directory('gallery-items')
+                    ->disk('public')
+                    ->maxSize(10240)
+                    ->columnSpanFull(),
+                FileUpload::make('thumbnail')
+                    ->label('Thumbnail')
+                    ->image()
+                    ->directory('gallery-items/thumbnails')
+                    ->disk('public')
+                    ->maxSize(2048),
                 TextInput::make('sort_order')
                     ->label('Sort Order')
                     ->numeric(),

@@ -3,9 +3,9 @@
 namespace App\Filament\Resources\Galleries\Schemas;
 
 use Filament\Forms\Components\DatePicker;
-use Filament\Forms\Components\RichEditor;
-use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 
@@ -26,9 +26,13 @@ class GalleryForm
                 Textarea::make('description')
                     ->label('Description')
                     ->rows(4),
-                TextInput::make('cover_image')
-                    ->label('Cover Image URL')
-                    ->maxLength(255),
+                FileUpload::make('cover_image')
+                    ->label('Cover Image')
+                    ->image()
+                    ->directory('galleries/covers')
+                    ->disk('public')
+                    ->maxSize(2048)
+                    ->columnSpanFull(),
                 DatePicker::make('event_date')
                     ->label('Event Date'),
                 TextInput::make('sort_order')

@@ -11,7 +11,7 @@
 
         <div class="relative mx-auto max-w-7xl px-6 py-20 md:py-28">
             <div class="mx-auto max-w-3xl fade-in">
-                <a href="{{ route('galeri.index') }}" class="mb-6 inline-flex items-center gap-1 text-sm font-medium text-neutral-500 hover:text-emerald-600 dark:text-neutral-400 dark:hover:text-emerald-400">
+                <a href="{{ route('galeri') }}" class="mb-6 inline-flex items-center gap-1 text-sm font-medium text-neutral-500 hover:text-emerald-600 dark:text-neutral-400 dark:hover:text-emerald-400">
                     <i data-lucide="arrow-left" class="w-4 h-4"></i>
                     Kembali ke Galeri
                 </a>
@@ -53,7 +53,7 @@
                         class="group mb-4 break-inside-avoid overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm dark:border-neutral-700 dark:bg-neutral-900 cursor-pointer reveal"
                         x-data x-intersect.once="$el.classList.add('reveal-visible')"
                         style="transition-delay: {{ $loop->index * 60 }}ms"
-                        @click="selected = { file_path: @js(asset('storage/' . $item->file_path)), caption: @js($item->caption ?? $item->title) }"
+                        @click="selected = { file_path: @js(asset('storage/' . $item->file_path)), caption: @js($item->caption ?? $item->title), media_type: @js($item->media_type?->value ?? 'image') }"
                     >
                         <div class="relative overflow-hidden">
                             @if ($item->thumbnail)
@@ -108,12 +108,24 @@
 
         <template x-if="selected">
             <div @click.stop>
-                <img
-                    :src="selected.file_path"
-                    :alt="selected.caption"
-                    x-transition.scale
-                    class="max-h-[90vh] max-w-full rounded-2xl object-contain shadow-2xl"
-                />
+                <template x-if="selected.media_type === 'video'">
+                    <video
+                        :src="selected.file_path"
+                        :alt="selected.caption"
+                        x-transition.scale
+                        class="max-h-[90vh] max-w-full rounded-2xl object-contain shadow-2xl"
+                        controls
+                        autoplay
+                    ></video>
+                </template>
+                <template x-if="selected.media_type !== 'video'">
+                    <img
+                        :src="selected.file_path"
+                        :alt="selected.caption"
+                        x-transition.scale
+                        class="max-h-[90vh] max-w-full rounded-2xl object-contain shadow-2xl"
+                    />
+                </template>
                 <p x-text="selected.caption" class="mt-3 text-center text-sm text-white/80"></p>
             </div>
         </template>
