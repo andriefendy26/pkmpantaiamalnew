@@ -3,7 +3,6 @@
 namespace App\Filament\Resources\GalleryItems\Schemas;
 
 use App\Enums\MediaType;
-use Filament\Forms\Components\BelongsToSelect;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
@@ -16,9 +15,9 @@ class GalleryItemForm
     {
         return $schema
             ->components([
-                BelongsToSelect::make('gallery_id')
-                    ->relationship('gallery', 'title')
+                Select::make('gallery_id')
                     ->label('Gallery')
+                    ->relationship('gallery', 'title')
                     ->searchable()
                     ->required(),
                 TextInput::make('title')

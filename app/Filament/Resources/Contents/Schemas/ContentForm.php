@@ -4,7 +4,6 @@ namespace App\Filament\Resources\Contents\Schemas;
 
 use App\Enums\ContentStatus;
 use App\Enums\ContentType;
-use Filament\Forms\Components\BelongsToSelect;
 use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\MultiSelect;
@@ -29,14 +28,14 @@ class ContentForm
                     ->label('Slug')
                     ->required()
                     ->maxLength(255),
-                BelongsToSelect::make('category_id')
-                    ->relationship('category', 'name')
+                Select::make('category_id')
                     ->label('Category')
+                    ->relationship('category', 'name')
                     ->searchable()
                     ->required(),
-                BelongsToSelect::make('author_id')
-                    ->relationship('author', 'name')
+                Select::make('author_id')
                     ->label('Author')
+                    ->relationship('author', 'name')
                     ->searchable(),
                 TextInput::make('author_name')
                     ->label('Author Name')
