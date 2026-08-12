@@ -23,4 +23,14 @@ class GalleryItem extends Model
     {
         return $this->belongsTo(Gallery::class);
     }
+
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', true);
+    }
+
+    public function scopeOrdered($query)
+    {
+        return $query->orderBy('sort_order');
+    }
 }

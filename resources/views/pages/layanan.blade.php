@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Galeri - UPTD Puskesmas Pantai Amal')
+@section('title', 'Layanan - UPTD Puskesmas Pantai Amal')
 
 @section('content')
 <div class="min-h-screen bg-white dark:bg-neutral-950 overflow-x-hidden">
@@ -16,39 +16,44 @@
                 UPTD Puskesmas Pantai Amal
             </span>
             <h1 class="edu-vic-wa-nt-hand mb-4 text-5xl font-bold tracking-tight text-slate-800 dark:text-white md:text-6xl lg:text-7xl">
-                Galeri
+                Layanan
             </h1>
             <p class="max-w-xl text-base leading-relaxed text-neutral-500 dark:text-neutral-400 md:text-lg">
-                Dokumentasi kegiatan dan momen kegiatan Puskesmas Pantai Amal.
+                Berbagai layanan kesehatan yang tersedia untuk memenuhi kebutuhan Anda.
             </p>
         </div>
     </div>
 
     {{-- CONTENT --}}
     <div class="mx-auto max-w-7xl px-6 py-12">
-        @if ($galleries->count() > 0)
+        @if ($layanans->count() > 0)
             <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                @foreach ($galleries as $gallery)
+                @foreach ($layanans as $layanan)
+                    @php
+                        $icon = $layanan->icon ?: 'briefcase';
+                        $colorMap = ['emerald','rose','sky','violet','amber','teal'];
+                        $color = $colorMap[$loop->index % count($colorMap)];
+                    @endphp
                     <div x-data x-intersect.once="$el.classList.add('reveal-visible')" class="reveal" style="transition-delay: {{ $loop->index * 80 }}ms">
-                        <x-gallery-card
-                            :title="$gallery->title"
-                            :description="$gallery->description"
-                            :cover_image="$gallery->cover_image"
-                            :event_date="$gallery->event_date"
-                            :item_count="$gallery->items_count"
-                            :url="route('galeri.show', $gallery->slug)"
+                        <x-service-card
+                            :title="$layanan->title"
+                            :excerpt="$layanan->short_description"
+                            :image="$layanan->image"
+                            :icon="$icon"
+                            :url="route('layanan.show', $layanan->slug)"
+                            :color="$color"
                         />
                     </div>
                 @endforeach
             </div>
 
             <div class="mt-10">
-                {{ $galleries->links() }}
+                {{ $layanans->links() }}
             </div>
         @else
             <div class="py-20 text-center">
-                <div class="mb-3 text-5xl opacity-20"><i data-lucide="image" class="w-16 h-16 mx-auto text-neutral-300 dark:text-neutral-600"></i></div>
-                <p class="text-sm text-neutral-400">Belum ada galeri yang tersedia.</p>
+                <div class="mb-3 text-5xl opacity-20"><i data-lucide="briefcase" class="w-16 h-16 mx-auto text-neutral-300 dark:text-neutral-600"></i></div>
+                <p class="text-sm text-neutral-400">Belum ada layanan yang tersedia.</p>
             </div>
         @endif
     </div>

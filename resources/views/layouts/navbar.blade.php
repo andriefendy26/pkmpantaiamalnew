@@ -1,9 +1,13 @@
 @php
     $navItems = [
         ['name' => 'Beranda', 'link' => '/'],
+        ['name' => 'Berita', 'link' => '/berita'],
+        ['name' => 'Artikel', 'link' => '/artikel'],
+        ['name' => 'Layanan', 'link' => '/layanan'],
+        ['name' => 'Fitur', 'link' => '/fitur'],
+        ['name' => 'Galeri', 'link' => '/galeri'],
         ['name' => 'Profil', 'link' => '/profil'],
         ['name' => 'Portal Sistem Informasi', 'link' => '/portal'],
-        ['name' => 'Galeri', 'link' => '/galeri'],
     ];
 @endphp
 
