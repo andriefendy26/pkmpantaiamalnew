@@ -9,6 +9,7 @@ use App\Filament\Resources\Tags\Schemas\TagForm;
 use App\Filament\Resources\Tags\Tables\TagsTable;
 use App\Models\Tag;
 use BackedEnum;
+use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -21,6 +22,7 @@ class TagResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedTag;
 
     // protected static ?string $navigationGroup = 'Kategori & Tags';
+    protected static string|UnitEnum|null $navigationGroup = 'Kategori & Tags';
 
     protected static ?string $recordTitleAttribute = 'id';
 

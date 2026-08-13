@@ -24,32 +24,47 @@
         </div>
     </div>
 
+
+
     {{-- CONTENT --}}
     <div class="mx-auto max-w-7xl px-6 py-12">
-        @if ($posts->count() > 0)
-            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                @foreach ($posts as $post)
-                    <div x-data x-intersect.once="$el.classList.add('reveal-visible')" class="reveal" style="transition-delay: {{ $loop->index * 80 }}ms">
-                        <x-content-card
-                            :title="$post->title"
-                            :excerpt="strip_tags($post->content)"
-                            :image="$post->image"
-                            :url="route('post.show', $post->slug)"
-                            :date="$post->publishing_date?->format('d M Y')"
-                            :category="$post->postCategory?->name"
-                            :author="$post->displayAuthorName()"
-                        />
-                    </div>
-                @endforeach
-            </div>
+        {{-- Filter kategori --}}
+        <div class="mb-8 flex flex-wrap gap-2">
+            <a href="{{ route('post') }}"
+            class="rounded-full px-4 py-1.5 text-sm font-medium transition-colors {{ ! $activeCategory ? 'bg-emerald-600 text-white' : 'border border-neutral-200 text-neutral-600 hover:border-emerald-300 hover:text-emerald-600 dark:border-neutral-700 dark:text-neutral-300' }}">
+                Semua
+            </a>
+            @foreach ($categories as $category)
+                <a href="{{ route('post', ['kategori' => $category->slug]) }}"
+                class="rounded-full px-4 py-1.5 text-sm font-medium transition-colors {{ $activeCategory === $category->slug ? 'bg-emerald-600 text-white' : 'border border-neutral-200 text-neutral-600 hover:border-emerald-300 hover:text-emerald-600 dark:border-neutral-700 dark:text-neutral-300' }}">
+                    {{ $category->name }}
+                    <span class="ml-1 {{ $activeCategory === $category->slug ? 'text-emerald-100' : 'text-neutral-400' }}">({{ $category->posts_count }})</span>
+                </a>
+            @endforeach
+        </div>
 
+        {{-- Grid post --}}
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            @forelse ($posts as $item)
+                <x-content-card
+                    :title="$item->title"
+                    :excerpt="strip_tags($item->content)"
+                    :image="$item->image"
+                    :url="route('post.show', $item->slug)"
+                    :date="$item->publishing_date?->format('d M Y')"
+                    :category="$item->postCategory?->name"
+                    :author="$item->displayAuthorName()"
+                />
+            @empty
+                <div class="col-span-full py-16 text-center text-sm text-neutral-500 dark:text-neutral-400">
+                    Belum ada post di kategori ini.
+                </div>
+            @endforelse
+        </div>
+
+        @if ($posts->hasPages())
             <div class="mt-10">
-                {{ $posts->links() }}
-            </div>
-        @else
-            <div class="py-20 text-center">
-                <div class="mb-3 text-5xl opacity-20"><i data-lucide="newspaper" class="w-16 h-16 mx-auto text-neutral-300 dark:text-neutral-600"></i></div>
-                <p class="text-sm text-neutral-400">Belum ada postingan yang dipublikasikan.</p>
+                {{ $posts->links('vendor.pagination.custom') }}
             </div>
         @endif
     </div>
