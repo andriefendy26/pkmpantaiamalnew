@@ -19,6 +19,13 @@ class PostCategory extends Model
         });
     }
 
+    protected function casts(): array
+    {
+        return [
+            'visibility' => 'boolean',
+        ];
+    }
+
     public function posts(): HasMany
     {
         return $this->hasMany(Post::class);

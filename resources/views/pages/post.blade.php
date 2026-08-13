@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Artikel - UPTD Puskesmas Pantai Amal')
+@section('title', 'Post - UPTD Puskesmas Pantai Amal')
 
 @section('content')
 <div class="min-h-screen bg-white dark:bg-neutral-950 overflow-x-hidden">
@@ -16,40 +16,40 @@
                 UPTD Puskesmas Pantai Amal
             </span>
             <h1 class="edu-vic-wa-nt-hand mb-4 text-5xl font-bold tracking-tight text-slate-800 dark:text-white md:text-6xl lg:text-7xl">
-                Artikel
+                Artikel & Berita
             </h1>
             <p class="max-w-xl text-base leading-relaxed text-neutral-500 dark:text-neutral-400 md:text-lg">
-                Baca artikel kesehatan terbaru dan informasi edukasi dari tenaga medis kami.
+                Informasi terbaru seputar kegiatan dan perkembangan Puskesmas Pantai Amal.
             </p>
         </div>
     </div>
 
     {{-- CONTENT --}}
     <div class="mx-auto max-w-7xl px-6 py-12">
-        @if ($artikels->count() > 0)
+        @if ($posts->count() > 0)
             <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                @foreach ($artikels as $artikel)
+                @foreach ($posts as $post)
                     <div x-data x-intersect.once="$el.classList.add('reveal-visible')" class="reveal" style="transition-delay: {{ $loop->index * 80 }}ms">
                         <x-content-card
-                            :title="$artikel->title"
-                            :excerpt="$artikel->excerpt"
-                            :image="$artikel->thumbnail"
-                            :url="route('artikel.show', $artikel->slug)"
-                            :date="$artikel->published_at?->format('d M Y')"
-                            :category="$artikel->category?->name"
-                            :author="$artikel->displayAuthorName()"
+                            :title="$post->title"
+                            :excerpt="$post->content"
+                            :image="$post->image"
+                            :url="route('post.show', $post->slug)"
+                            :date="$post->publishing_date?->format('d M Y')"
+                            :category="$post->postCategory?->name"
+                            :author="$post->displayAuthorName()"
                         />
                     </div>
                 @endforeach
             </div>
 
             <div class="mt-10">
-                {{ $artikels->links() }}
+                {{ $posts->links() }}
             </div>
         @else
             <div class="py-20 text-center">
-                <div class="mb-3 text-5xl opacity-20"><i data-lucide="book-open" class="w-16 h-16 mx-auto text-neutral-300 dark:text-neutral-600"></i></div>
-                <p class="text-sm text-neutral-400">Belum ada artikel yang dipublikasikan.</p>
+                <div class="mb-3 text-5xl opacity-20"><i data-lucide="newspaper" class="w-16 h-16 mx-auto text-neutral-300 dark:text-neutral-600"></i></div>
+                <p class="text-sm text-neutral-400">Belum ada postingan yang dipublikasikan.</p>
             </div>
         @endif
     </div>

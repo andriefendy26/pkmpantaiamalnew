@@ -19,9 +19,6 @@ class CategoryForm
                     ->label('Slug')
                     ->required()
                     ->maxLength(255),
-                TextInput::make('type')
-                    ->label('Type')
-                    ->maxLength(255),
             ]);
     }
 }

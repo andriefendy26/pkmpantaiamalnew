@@ -57,7 +57,6 @@ class AdminPanelProvider extends PanelProvider
                 FilamentShieldPlugin::make(),
             ])
             ->navigationGroups([
-                'Konten & Berita',
                 'Post',
                 'Kategori & Tags',
                 'Media & Galeri',

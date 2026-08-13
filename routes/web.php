@@ -1,10 +1,9 @@
 <?php
 
-use App\Http\Controllers\ArtikelController;
-use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\FiturController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\LayananController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -22,14 +21,11 @@ Route::get('/portal', function () {
 Route::get('/galeri', [GaleriController::class, 'index'])->name('galeri');
 Route::get('/galeri/{slug}', [GaleriController::class, 'show'])->name('galeri.show');
 
-Route::get('/berita', [BeritaController::class, 'index'])->name('berita.index');
-Route::get('/berita/{slug}', [BeritaController::class, 'show'])->name('berita.show');
+Route::get('/post', [PostController::class, 'index'])->name('post');
+Route::get('/post/{slug}', [PostController::class, 'show'])->name('post.show');
 
-Route::get('/artikel', [ArtikelController::class, 'index'])->name('artikel.index');
-Route::get('/artikel/{slug}', [ArtikelController::class, 'show'])->name('artikel.show');
-
-Route::get('/layanan', [LayananController::class, 'index'])->name('layanan.index');
+Route::get('/layanan', [LayananController::class, 'index'])->name('layanan');
 Route::get('/layanan/{slug}', [LayananController::class, 'show'])->name('layanan.show');
 
-Route::get('/fitur', [FiturController::class, 'index'])->name('fitur.index');
+Route::get('/fitur', [FiturController::class, 'index'])->name('fitur');
 Route::get('/fitur/{slug}', [FiturController::class, 'show'])->name('fitur.show');

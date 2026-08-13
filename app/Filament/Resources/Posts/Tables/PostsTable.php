@@ -24,10 +24,11 @@ class PostsTable
                     ->label('Category')
                     ->sortable()
                     ->searchable(),
-                TextColumn::make('displayAuthorName')
+                TextColumn::make('author.name')
                     ->label('Author')
                     ->sortable()
-                    ->searchable(),
+                    ->searchable()
+                    ->default('—'),
                 TextColumn::make('publishing_date')
                     ->dateTime()
                     ->sortable(),

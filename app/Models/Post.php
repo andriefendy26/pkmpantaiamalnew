@@ -47,11 +47,13 @@ class Post extends Model
 
     public function scopePublished($query)
     {
-        return $query->where('publishing_date', '<=', now());
+        return $query->where(function ($q) {
+            $q->whereNull('publishing_date')->orWhere('publishing_date', '<=', now());
+        });
     }
 
     public function displayAuthorName(): string
     {
-        return $this->author?->name ?? $this->author_name ?? '—';
+        return $this->author_name ?? '—';
     }
 }

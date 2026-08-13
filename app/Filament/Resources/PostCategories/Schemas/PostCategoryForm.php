@@ -5,6 +5,7 @@ namespace App\Filament\Resources\PostCategories\Schemas;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
+use Filament\Forms\Components\Toggle;
 
 class PostCategoryForm
 {
@@ -23,10 +24,9 @@ class PostCategoryForm
                 Textarea::make('description')
                     ->label('Description')
                     ->rows(3),
-                TextInput::make('visibility')
+                Toggle::make('visibility')
                     ->label('Visibility')
-                    ->required()
-                    ->maxLength(255),
+                    ->required(),
             ]);
     }
 }
