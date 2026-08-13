@@ -1,12 +1,6 @@
 @php
     $navItems = [
         ['name' => 'Beranda', 'link' => '/'],
-        ['name' => 'Profil', 'link' => '#', 'children' => [
-            ['name' => 'Tentang Puskesmas', 'link' => '/profil/tentang'],
-            ['name' => 'Visi dan Misi', 'link' => '/profil/visi-misi'],
-            ['name' => 'Struktur Organisasi', 'link' => '/profil/struktur-organisasi'],
-            ['name' => 'Tenaga Kesehatan', 'link' => '/profil/tenaga-kesehatan'],
-        ]],
         ['name' => 'Pelayanan', 'link' => '#', 'children' => [
             ['name' => 'Klaster 1 — Manajemen', 'link' => '/layanan/klaster-1-manajemen'],
             ['name' => 'Klaster 2 — Ibu dan Anak', 'link' => '/layanan/klaster-2-ibu-anak'],
@@ -14,16 +8,22 @@
             ['name' => 'Klaster 4 — Penanggulangan Penyakit Menular', 'link' => '/layanan/klaster-4-penyakit-menular'],
             ['name' => 'Lintas Klaster', 'link' => '/layanan/lintas-klaster'],
         ]],
+        ['name' => 'Profil', 'link' => '#', 'children' => [
+            ['name' => 'Tentang Puskesmas', 'link' => '/profil/tentang'],
+            ['name' => 'Visi dan Misi', 'link' => '/profil/visi-misi'],
+            ['name' => 'Struktur Organisasi', 'link' => '/profil/struktur-organisasi'],
+            ['name' => 'Tenaga Kesehatan', 'link' => '/profil/tenaga-kesehatan'],
+        ]],
         ['name' => 'Informasi', 'link' => '#', 'children' => [
+            ['name' => 'Post', 'link' => '/post'],
             ['name' => 'Jadwal Pelayanan', 'link' => '/informasi/jadwal-pelayanan'],
             ['name' => 'Dokter dan Tenaga Kesehatan', 'link' => '/informasi/dokter-tenaga-kesehatan'],
             ['name' => 'Berita dan Pengumuman', 'link' => '/informasi/berita-pengumuman'],
             ['name' => 'Informasi Kesehatan', 'link' => '/informasi/informasi-kesehatan'],
         ]],
-        ['name' => 'Post', 'link' => '/post'],
         ['name' => 'Pengaduan', 'link' => '/pengaduan'],
         ['name' => 'Galeri', 'link' => '/galeri'],
-        ['name' => 'Fitur', 'link' => '/fitur'],
+        // ['name' => 'Fitur', 'link' => '/fitur'],
         ['name' => 'Portal Sistem Informasi', 'link' => '/portal'],
     ];
 
@@ -101,11 +101,29 @@
             : 'py-4 xl:py-5 bg-white/70 dark:bg-neutral-900/70 border-transparent shadow-none'"
     >
         <a href="/" class="flex shrink-0 items-center gap-2 font-bold text-slate-800 dark:text-white">
-            <span class="edu-vic-wa-nt-hand whitespace-nowrap transition-all duration-300"
-                  :class="scrolled ? 'text-base xl:text-lg' : 'text-lg xl:text-xl'">
-                Puskesmas Pantai Amal
-            </span>
+            <img src="{{ asset('storage/home/logo-puskesmas.png') }}" alt="Logo Puskesmas Pantai Amal" class="h-10 w-auto">
+            <div>
+                <span class=" transition-all duration-300"
+                :class="scrolled ? 'text-base xl:text-sm' : 'text-lg xl:text-sm'">
+                    Puskesmas
+                    {{-- <br/> --}}
+                    Pantai Amal
+                </span>
+            </div>
         </a>
+        {{-- <a href="/" class="flex shrink-0 items-center gap-2 font-bold text-slate-800 dark:text-white">
+            <img src="{{ asset('storage/home/logo-puskesmas.png') }}" alt="Logo Puskesmas Pantai Amal" class="h-8 w-auto">
+            <div>
+                <span>
+                    Puskesmas
+                </span>
+                <br/>
+                <span class="edu-vic-wa-nt-hand whitespace-nowrap transition-all duration-300"
+                      :class="scrolled ? 'text-base xl:text-lg' : 'text-lg xl:text-xl'">
+                    Pantai Amal
+                </span>
+            </div>
+        </a> --}}
 
         <div class="flex items-center gap-0.5 xl:gap-1 text-xs xl:text-sm font-medium text-neutral-600 dark:text-neutral-300">
             @foreach ($navItems as $item)
@@ -155,10 +173,12 @@
 
     {{-- ── MOBILE / TABLET NAVBAR ───────────────────────── --}}
     <div class="lg:hidden w-full">
+        
         <div class="flex items-center justify-between border-b transition-all duration-300 ease-out backdrop-blur-md px-4"
              :class="scrolled
                 ? 'py-2 bg-white/95 dark:bg-neutral-900/95 border-neutral-200 dark:border-neutral-800 shadow-md'
                 : 'py-3 bg-white/80 dark:bg-neutral-900/80 border-transparent shadow-none'">
+            <img src="{{ asset('storage/home/logo-puskesmas.png') }}" alt="Logo Puskesmas Pantai Amal" class="h-10 w-auto">
             <a href="/" class="edu-vic-wa-nt-hand font-bold text-slate-800 dark:text-white truncate max-w-[70vw]">Puskesmas Pantai Amal</a>
             <button @click="mobileOpen = !mobileOpen" class="p-2 shrink-0" aria-label="Buka menu">
                 <i data-lucide="menu" x-show="!mobileOpen"></i>

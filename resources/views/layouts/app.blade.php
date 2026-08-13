@@ -87,7 +87,7 @@
 
     <x-navbar />
 
-    <main>
+    <main class="mt-10">
         {{ $slot ?? '' }}
         @yield('content')
     </main>

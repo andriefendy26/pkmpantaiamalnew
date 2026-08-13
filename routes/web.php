@@ -45,8 +45,8 @@ Route::get('/galeri/{slug}', [GaleriController::class, 'show'])->name('galeri.sh
 Route::get('/post', [PostController::class, 'index'])->name('post');
 Route::get('/post/{slug}', [PostController::class, 'show'])->name('post.show');
 
-Route::get('/fitur', [FiturController::class, 'index'])->name('fitur');
-Route::get('/fitur/{slug}', [FiturController::class, 'show'])->name('fitur.show');
+// Route::get('/fitur', [FiturController::class, 'index'])->name('fitur');
+// Route::get('/fitur/{slug}', [FiturController::class, 'show'])->name('fitur.show');
 
 Route::get('/pengaduan', [PengaduanController::class, 'index'])->name('pengaduan');
 Route::post('/pengaduan', [PengaduanController::class, 'store'])->name('pengaduan.store');
