@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\InstagramPostUrl;
+use App\Models\Post;
 
 class BerandaController extends Controller
 {
@@ -10,6 +11,12 @@ class BerandaController extends Controller
     {
         $instagramUrls = InstagramPostUrl::orderByDesc('id')->get();
 
-        return view('pages.beranda', compact('instagramUrls'));
+        $latestPosts = Post::published()
+            ->with(['postCategory', 'tags'])
+            ->orderByDesc('publishing_date')
+            ->limit(3)
+            ->get();
+
+        return view('pages.beranda', compact('instagramUrls', 'latestPosts'));
     }
 }

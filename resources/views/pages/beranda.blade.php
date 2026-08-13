@@ -52,7 +52,7 @@
             <div class="relative z-10 mt-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-2xl dark:border-neutral-800 dark:bg-neutral-900 fade-in" style="animation-delay: 1400ms; opacity:0; animation-fill-mode:forwards;">
                 <div class="relative w-full overflow-hidden rounded-xl border border-gray-300 dark:border-gray-700">
                     <img
-                        src="{{ asset('assets/beranda/01.jpg') }}"
+                        src="{{ asset('storage/home/01.jpg') }}"
                         alt="Puskesmas Pantai Amal"
                         class="aspect-[16/9] h-auto w-full object-cover brightness-75"
                         height="1000"
@@ -100,9 +100,49 @@
         </div>
     </section>
 
+    {{-- ═══════════════════════════════════════════
+          2. POST TERBARU
+    ═══════════════════════════════════════════ --}}
+    <section id="post" class="mx-auto max-w-7xl px-4 py-20">
+        <div class="mb-12 text-center reveal" x-data x-intersect.once="$el.classList.add('reveal-visible')">
+            <span class="mb-3 inline-block rounded-full border border-emerald-200 bg-emerald-50 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-emerald-700 dark:border-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
+                Artikel & Berita
+            </span>
+            <h2 class="edu-vic-wa-nt-hand text-3xl font-bold text-slate-800 dark:text-slate-100 md:text-4xl">
+                Post Terbaru
+            </h2>
+            <p class="mx-auto mt-3 max-w-xl text-sm text-neutral-500 dark:text-neutral-400">
+                Informasi dan artikel kesehatan terbaru dari Puskesmas Pantai Amal.
+            </p>
+        </div>
+
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            @foreach ($latestPosts as $i => $post)
+                <div x-data x-intersect.once="$el.classList.add('reveal-visible')" class="reveal" style="transition-delay: {{ $i * 80 }}ms">
+                    <x-content-card
+                        :title="$post->title"
+                        :excerpt="strip_tags($post->content)"
+                        :image="$post->image"
+                        :url="route('post.show', $post->slug)"
+                        :date="$post->publishing_date?->format('d M Y')"
+                        :category="$post->postCategory?->name"
+                        :author="$post->displayAuthorName()"
+                    />
+                </div>
+            @endforeach
+        </div>
+
+        <div class="mt-10 text-center reveal" x-data x-intersect.once="$el.classList.add('reveal-visible')">
+            <a href="{{ route('post') }}"
+               class="inline-flex items-center gap-2 rounded-xl border border-neutral-300 bg-white px-6 py-2.5 text-sm font-semibold text-slate-700 transition-all hover:-translate-y-0.5 hover:bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-200 dark:hover:bg-neutral-800">
+                Lihat Semua Post
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+        </div>
+    </section>
 
     {{-- ═══════════════════════════════════════════
-         2. LAYANAN
+         3. LAYANAN
     ═══════════════════════════════════════════ --}}
     @php
         $layanan = [
