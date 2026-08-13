@@ -32,7 +32,7 @@
                     <div x-data x-intersect.once="$el.classList.add('reveal-visible')" class="reveal" style="transition-delay: {{ $loop->index * 80 }}ms">
                         <x-content-card
                             :title="$post->title"
-                            :excerpt="$post->content"
+                            :excerpt="strip_tags($post->content)"
                             :image="$post->image"
                             :url="route('post.show', $post->slug)"
                             :date="$post->publishing_date?->format('d M Y')"
