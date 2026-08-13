@@ -1,14 +1,13 @@
 <?php
 
+use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\FiturController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('pages.beranda');
-})->name('beranda');
+Route::get('/', BerandaController::class)->name('beranda');
 
 Route::get('/profil', function () {
     return view('pages.profil');

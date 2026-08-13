@@ -86,15 +86,17 @@
         </div>
 
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            @foreach ([
-                'https://www.instagram.com/p/Db11wJ5iTN8/',
-                'https://www.instagram.com/p/DbqqPv1Cacp/',
-                'https://www.instagram.com/p/DbfAziQpXhr/',
-            ] as $i => $url)
-                <div x-data x-intersect.once="$el.classList.add('reveal-visible')" class="reveal flex justify-center" style="transition-delay: {{ $i * 80 }}ms">
-                    <x-instagram-embed :url="$url" />
+            @if ($instagramUrls->count() > 0)
+                @foreach ($instagramUrls as $i => $item)
+                    <div x-data x-intersect.once="$el.classList.add('reveal-visible')" class="reveal flex justify-center" style="transition-delay: {{ $i * 80 }}ms">
+                        <x-instagram-embed :url="$item->url" />
+                    </div>
+                @endforeach
+            @else
+                <div class="col-span-full py-16 text-center">
+                    <p class="text-sm text-neutral-400">Belum ada postingan Instagram.</p>
                 </div>
-            @endforeach
+            @endif
         </div>
     </section>
 
