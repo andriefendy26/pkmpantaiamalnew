@@ -21,6 +21,7 @@
             ['name' => 'Informasi Kesehatan', 'link' => '/informasi/informasi-kesehatan'],
         ]],
         ['name' => 'Post', 'link' => '/post'],
+        ['name' => 'Pengaduan', 'link' => '/pengaduan'],
         ['name' => 'Galeri', 'link' => '/galeri'],
         ['name' => 'Fitur', 'link' => '/fitur'],
         ['name' => 'Portal Sistem Informasi', 'link' => '/portal'],

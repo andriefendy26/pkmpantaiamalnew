@@ -6,6 +6,7 @@ use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PelayananController;
+use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfilController;
 use Illuminate\Support\Facades\Route;
@@ -46,3 +47,6 @@ Route::get('/post/{slug}', [PostController::class, 'show'])->name('post.show');
 
 Route::get('/fitur', [FiturController::class, 'index'])->name('fitur');
 Route::get('/fitur/{slug}', [FiturController::class, 'show'])->name('fitur.show');
+
+Route::get('/pengaduan', [PengaduanController::class, 'index'])->name('pengaduan');
+Route::post('/pengaduan', [PengaduanController::class, 'store'])->name('pengaduan.store');
