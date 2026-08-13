@@ -99,8 +99,11 @@
         document.addEventListener('DOMContentLoaded', renderLucide);
         document.addEventListener('alpine:init', renderLucide);
         window.addEventListener('load', renderLucide);
+        renderInstagram();
+        
     </script>
-
+    <script async src="//www.instagram.com/embed.js">
+    </script>
     @stack('scripts')
 </body>
 </html>

@@ -70,6 +70,35 @@
         </div>
     </div>
 
+    {{-- Instagram --}}
+    
+    <section id="instagram" class="mx-auto max-w-7xl px-4 py-20">
+        <div class="mb-12 text-center reveal" x-data x-intersect.once="$el.classList.add('reveal-visible')">
+            <span class="mb-3 inline-block rounded-full border border-pink-200 bg-pink-50 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-pink-700 dark:border-pink-800 dark:bg-pink-950 dark:text-pink-300">
+                Instagram
+            </span>
+            <h2 class="edu-vic-wa-nt-hand text-3xl font-bold text-slate-800 dark:text-slate-100 md:text-4xl">
+                Kabar Terbaru dari Kami
+            </h2>
+            <p class="mx-auto mt-3 max-w-xl text-sm text-neutral-500 dark:text-neutral-400">
+                Ikuti kegiatan dan informasi terbaru Puskesmas Pantai Amal melalui Instagram resmi kami.
+            </p>
+        </div>
+
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            @foreach ([
+                'https://www.instagram.com/p/Db11wJ5iTN8/',
+                'https://www.instagram.com/p/DbqqPv1Cacp/',
+                'https://www.instagram.com/p/DbfAziQpXhr/',
+            ] as $i => $url)
+                <div x-data x-intersect.once="$el.classList.add('reveal-visible')" class="reveal flex justify-center" style="transition-delay: {{ $i * 80 }}ms">
+                    <x-instagram-embed :url="$url" />
+                </div>
+            @endforeach
+        </div>
+    </section>
+
+
     {{-- ═══════════════════════════════════════════
          2. LAYANAN
     ═══════════════════════════════════════════ --}}
