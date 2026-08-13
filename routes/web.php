@@ -22,13 +22,13 @@ Route::get('/profil/visi-misi', [ProfilController::class, 'visiMisi'])->name('pr
 Route::get('/profil/struktur-organisasi', [ProfilController::class, 'strukturOrganisasi'])->name('profil.struktur');
 Route::get('/profil/tenaga-kesehatan', [ProfilController::class, 'tenagaKesehatan'])->name('profil.tenaga-kesehatan');
 
-Route::get('/layanan', [LayananController::class, 'index'])->name('layanan');
-Route::get('/layanan/{slug}', [LayananController::class, 'show'])->name('layanan.show');
 Route::get('/layanan/klaster-1-manajemen', [PelayananController::class, 'klaster1'])->name('layanan.klaster1');
 Route::get('/layanan/klaster-2-ibu-anak', [PelayananController::class, 'klaster2'])->name('layanan.klaster2');
 Route::get('/layanan/klaster-3-dewasa-lanjut-usia', [PelayananController::class, 'klaster3'])->name('layanan.klaster3');
 Route::get('/layanan/klaster-4-penyakit-menular', [PelayananController::class, 'klaster4'])->name('layanan.klaster4');
 Route::get('/layanan/lintas-klaster', [PelayananController::class, 'lintasKlaster'])->name('layanan.lintas');
+Route::get('/layanan', [LayananController::class, 'index'])->name('layanan');
+Route::get('/layanan/{slug}', [LayananController::class, 'show'])->name('layanan.show');
 
 Route::get('/informasi/jadwal-pelayanan', [InformasiController::class, 'jadwalPelayanan'])->name('informasi.jadwal');
 Route::get('/informasi/dokter-tenaga-kesehatan', [InformasiController::class, 'dokterTenagaKesehatan'])->name('informasi.dokter');
