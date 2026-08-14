@@ -43,6 +43,11 @@ Route::get('/portal', function () {
 Route::get('/survey-kepuasan-masyarakat', [LayananLainnyaController::class, 'surveyKepuasan'])->name('layanan.survey');
 Route::get('/ppid', [LayananLainnyaController::class, 'ppid'])->name('layanan.ppid');
 Route::get('/sippn', [LayananLainnyaController::class, 'sippn'])->name('layanan.sippn');
+Route::get('/faq', [LayananLainnyaController::class, 'faq'])->name('faq');
+
+Route::get('/statistik', [LayananLainnyaController::class, 'statistik'])->name('statistik');
+Route::get('/statistik/kunjungan-pasien', [LayananLainnyaController::class, 'kunjunganPasien'])->name('statistik.kunjungan');
+Route::get('/statistik/penyakit-terbanyak', [LayananLainnyaController::class, 'penyakitTerbanyak'])->name('statistik.penyakit');
 
 Route::get('/galeri', [GaleriController::class, 'index'])->name('galeri');
 Route::get('/galeri/{slug}', [GaleriController::class, 'show'])->name('galeri.show');

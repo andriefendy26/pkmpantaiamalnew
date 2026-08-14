@@ -21,6 +21,13 @@
             ['name' => 'Berita dan Pengumuman', 'link' => '/informasi/berita-pengumuman'],
             ['name' => 'Informasi Kesehatan', 'link' => '/informasi/informasi-kesehatan'],
         ]],
+        ['name' => 'Statistik', 'link' => '#', 'children' => [
+            ['name' => 'Kunjungan Pasien', 'link' => '/statistik/kunjungan-pasien'],
+            ['name' => 'Penyakit Terbanyak', 'link' => '/statistik/penyakit-terbanyak'],
+        ]],
+        // ['name' => 'Fitur', 'link' => '/fitur'],
+        ['name' => 'FAQ', 'link' => '/faq'],
+        ['name' => 'Portal Sistem Informasi', 'link' => '/portal'],
         ['name' => 'Layanan Lainnya', 'link' => '#', 'children' => [
             ['name' => 'Survey Kepuasan Masyarakat', 'link' => '/survey-kepuasan-masyarakat'],
             ['name' => 'PPID', 'link' => '/ppid'],
@@ -28,8 +35,6 @@
             ['name' => 'Pengaduan', 'link' => '/pengaduan'],
             ['name' => 'Galeri', 'link' => '/galeri'],
         ]],
-        // ['name' => 'Fitur', 'link' => '/fitur'],
-        ['name' => 'Portal Sistem Informasi', 'link' => '/portal'],
     ];
 
     $socialLinks = [
@@ -37,6 +42,7 @@
         ['name' => 'Facebook', 'icon' => 'facebook', 'link' => 'https://facebook.com/puskesmaspantaiamal'],
         ['name' => 'YouTube', 'icon' => 'youtube', 'link' => 'https://youtube.com/@puskesmaspantaiamal'],
     ];
+
 @endphp
 
 <div class="fixed top-0 left-0 w-full z-[999]"
