@@ -6,56 +6,82 @@
 <div class="min-h-screen bg-white dark:bg-neutral-950 overflow-x-hidden">
 
     {{-- ═══════════════════════════════════════════
-         1. HERO CAROUSEL
+         1. HERO TEXT + CAROUSEL
     ═══════════════════════════════════════════ --}}
-    <div x-data="{
-        current: 0,
-        slides: [
-            {
-                image: '{{ asset('storage/home/01.jpg') }}',
-                badge: 'Melayani dengan Sepenuh Hati',
-                title: 'Selamat datang di Website Puskesmas Pantai Amal',
-                subtitle: 'Kesehatan Anda adalah tujuan kami, melayani dengan sepenuh hati untuk masyarakat Pantai Amal dan sekitarnya.',
-            },
-            {
-                image: '{{ asset('storage/home/01.jpg') }}',
-                badge: 'Layanan Kesehatan Terpercaya',
-                title: 'Puskesmas Pantai Amal',
-                subtitle: 'Menyediakan layanan kesehatan berkualitas untuk seluruh masyarakat Tarakan dan sekitarnya.',
-            }
-        ],
-        timer: null,
-        startTimer() {
-            this.timer = setInterval(() => {
-                this.current = (this.current + 1) % this.slides.length;
-            }, 5000);
-        },
-        stopTimer() {
-            clearInterval(this.timer);
-        },
-        goTo(index) {
-            this.current = index;
-            this.stopTimer();
-            this.startTimer();
-        },
-        prev() {
-            this.current = (this.current - 1 + this.slides.length) % this.slides.length;
-            this.stopTimer();
-            this.startTimer();
-        },
-        next() {
-            this.current = (this.current + 1) % this.slides.length;
-            this.stopTimer();
-            this.startTimer();
-        },
-        init() {
-            this.startTimer();
-        }
-    }" @mouseenter="stopTimer()" @mouseleave="startTimer()">
-        <div class="relative mx-auto flex max-w-7xl flex-col items-center justify-center">
-            <div class="px-4 py-10 md:py-20 mt-20">
+    <div class="relative mx-auto flex max-w-7xl flex-col items-center justify-center">
+        <div class="px-4 py-10 md:py-20 mt-20">
 
-                {{-- Carousel --}}
+            {{-- Typography --}}
+            <div class="mb-10 text-center fade-in">
+                <div class="mx-auto mb-6 flex w-fit items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-1.5 dark:border-emerald-800 dark:bg-emerald-950">
+                    <span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span class="text-xs font-semibold tracking-wider text-emerald-700 dark:text-emerald-300 uppercase">
+                        Melayani dengan Sepenuh Hati
+                    </span>
+                </div>
+
+                @php
+                    $judulHero = explode(' ', 'Selamat datang di Website Puskesmas Pantai Amal');
+                @endphp
+                <h1 class="relative z-10 edu-vic-wa-nt-hand mx-auto max-w-4xl text-center text-2xl font-bold text-slate-700 md:text-4xl lg:text-7xl dark:text-slate-300">
+                    @foreach ($judulHero as $index => $word)
+                        <span class="mr-2 inline-block word-anim" style="animation-delay: {{ $index * 80 + 200 }}ms">{{ $word }}</span>
+                    @endforeach
+                </h1>
+
+                <p class="fade-in relative z-10 mx-auto max-w-xl py-4 roboto-mono text-center text-lg font-normal text-neutral-600 dark:text-neutral-300" style="animation-delay: 1100ms; opacity:0; animation-fill-mode:forwards;">
+                    Kesehatan Anda adalah tujuan kami, melayani dengan sepenuh hati untuk
+                    masyarakat Pantai Amal dan sekitarnya.
+                </p>
+
+                <div class="fade-in relative z-10 mt-4 flex flex-wrap items-center justify-center gap-3" style="animation-delay: 1300ms; opacity:0; animation-fill-mode:forwards;">
+                    <a href="#layanan"
+                       class="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-emerald-200 transition-all hover:-translate-y-0.5 hover:bg-emerald-700 hover:shadow-emerald-300 dark:shadow-none">
+                        Lihat Layanan
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#kontak"
+                       class="inline-flex items-center gap-2 rounded-xl border border-neutral-300 bg-white px-6 py-2.5 text-sm font-semibold text-slate-700 transition-all hover:-translate-y-0.5 hover:bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-200 dark:hover:bg-neutral-800">
+                        Hubungi Kami
+                    </a>
+                </div>
+            </div>
+
+            {{-- Carousel --}}
+            <div x-data="{
+                current: 0,
+                slides: [
+                    { image: '{{ asset('storage/home/01.jpg') }}' },
+                    { image: '{{ asset('storage/home/01.jpg') }}' },
+                ],
+                timer: null,
+                startTimer() {
+                    this.timer = setInterval(() => {
+                        this.current = (this.current + 1) % this.slides.length;
+                    }, 5000);
+                },
+                stopTimer() {
+                    clearInterval(this.timer);
+                },
+                goTo(index) {
+                    this.current = index;
+                    this.stopTimer();
+                    this.startTimer();
+                },
+                prev() {
+                    this.current = (this.current - 1 + this.slides.length) % this.slides.length;
+                    this.stopTimer();
+                    this.startTimer();
+                },
+                next() {
+                    this.current = (this.current + 1) % this.slides.length;
+                    this.stopTimer();
+                    this.startTimer();
+                },
+                init() {
+                    this.startTimer();
+                }
+            }" @mouseenter="stopTimer()" @mouseleave="startTimer()">
                 <div class="relative">
                     <div class="overflow-hidden rounded-3xl border border-neutral-200 bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-900 shadow-2xl">
                         <template x-for="(slide, index) in slides" :key="index">
@@ -67,49 +93,8 @@
                                  x-transition:leave-start="opacity-100"
                                  x-transition:leave-end="opacity-0">
 
-                                {{-- Image --}}
                                 <div class="relative w-full overflow-hidden rounded-xl border border-gray-300 dark:border-gray-700">
-                                    <img :src="slide.image" :alt="slide.title" class="aspect-[16/9] h-auto w-full object-cover brightness-75" height="1000" width="1000" />
-
-                                    {{-- Overlay content --}}
-                                    <div class="absolute inset-0 flex items-center justify-center">
-                                        <div class="text-center px-4">
-                                            {{-- Badge --}}
-                                            <div class="mx-auto mb-6 flex w-fit items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-1.5 dark:border-emerald-800 dark:bg-emerald-950">
-                                                <span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                                                <span class="text-xs font-semibold tracking-wider text-emerald-700 dark:text-emerald-300 uppercase" x-text="slide.badge"></span>
-                                            </div>
-
-                                            {{-- Title --}}
-                                            <h1 class="edu-vic-wa-nt-hand mx-auto max-w-4xl text-center text-2xl font-bold text-slate-700 md:text-4xl lg:text-7xl dark:text-slate-300">
-                                                <template x-for="(word, wIndex) in slide.title.split(' ')" :key="wIndex">
-                                                    <span class="mr-2 inline-block word-anim" x-text="word" :style="`animation-delay: ${wIndex * 80 + 200}ms`"></span>
-                                                </template>
-                                            </h1>
-
-                                            {{-- Subtitle --}}
-                                            <p class="mx-auto max-w-xl py-4 roboto-mono text-center text-lg font-normal text-neutral-600 dark:text-neutral-300" x-text="slide.subtitle"></p>
-
-                                            {{-- CTA Buttons --}}
-                                            <div class="mt-4 flex flex-wrap items-center justify-center gap-3">
-                                                <a href="#layanan" class="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-emerald-200 transition-all hover:-translate-y-0.5 hover:bg-emerald-700 hover:shadow-emerald-300 dark:shadow-none">
-                                                    Lihat Layanan
-                                                    <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                                                </a>
-                                                <a href="#kontak" class="inline-flex items-center gap-2 rounded-xl border border-neutral-300 bg-white px-6 py-2.5 text-sm font-semibold text-slate-700 transition-all hover:-translate-y-0.5 hover:bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-200 dark:hover:bg-neutral-800">
-                                                    Hubungi Kami
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {{-- Overlay label --}}
-                                    <div class="absolute bottom-8 left-8">
-                                        <div class="rounded-xl border border-white/20 bg-black/40 px-4 py-2 backdrop-blur-md">
-                                            <p class="text-xs font-medium text-white/70">Berlokasi di</p>
-                                            <p class="text-sm font-bold text-white">Pantai Amal, Tarakan</p>
-                                        </div>
-                                    </div>
+                                    <img :src="slide.image" alt="Puskesmas Pantai Amal" class="aspect-[16/9] h-auto w-full object-cover" height="1000" width="1000" />
                                 </div>
                             </div>
                         </template>
