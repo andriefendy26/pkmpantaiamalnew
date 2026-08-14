@@ -25,9 +25,9 @@
             ['name' => 'Survey Kepuasan Masyarakat', 'link' => '/survey-kepuasan-masyarakat'],
             ['name' => 'PPID', 'link' => '/ppid'],
             ['name' => 'SIPPN', 'link' => '/sippn'],
+            ['name' => 'Pengaduan', 'link' => '/pengaduan'],
+            ['name' => 'Galeri', 'link' => '/galeri'],
         ]],
-        ['name' => 'Pengaduan', 'link' => '/pengaduan'],
-        ['name' => 'Galeri', 'link' => '/galeri'],
         // ['name' => 'Fitur', 'link' => '/fitur'],
         ['name' => 'Portal Sistem Informasi', 'link' => '/portal'],
     ];
