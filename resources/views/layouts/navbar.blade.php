@@ -21,6 +21,11 @@
             ['name' => 'Berita dan Pengumuman', 'link' => '/informasi/berita-pengumuman'],
             ['name' => 'Informasi Kesehatan', 'link' => '/informasi/informasi-kesehatan'],
         ]],
+        ['name' => 'Layanan Lainnya', 'link' => '#', 'children' => [
+            ['name' => 'Survey Kepuasan Masyarakat', 'link' => '/survey-kepuasan-masyarakat'],
+            ['name' => 'PPID', 'link' => '/ppid'],
+            ['name' => 'SIPPN', 'link' => '/sippn'],
+        ]],
         ['name' => 'Pengaduan', 'link' => '/pengaduan'],
         ['name' => 'Galeri', 'link' => '/galeri'],
         // ['name' => 'Fitur', 'link' => '/fitur'],

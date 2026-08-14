@@ -5,6 +5,7 @@ use App\Http\Controllers\FiturController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\LayananController;
+use App\Http\Controllers\LayananLainnyaController;
 use App\Http\Controllers\PelayananController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\PostController;
@@ -38,6 +39,10 @@ Route::get('/informasi/informasi-kesehatan', [InformasiController::class, 'infor
 Route::get('/portal', function () {
     return view('pages.portal');
 })->name('portal');
+
+Route::get('/survey-kepuasan-masyarakat', [LayananLainnyaController::class, 'surveyKepuasan'])->name('layanan.survey');
+Route::get('/ppid', [LayananLainnyaController::class, 'ppid'])->name('layanan.ppid');
+Route::get('/sippn', [LayananLainnyaController::class, 'sippn'])->name('layanan.sippn');
 
 Route::get('/galeri', [GaleriController::class, 'index'])->name('galeri');
 Route::get('/galeri/{slug}', [GaleriController::class, 'show'])->name('galeri.show');
