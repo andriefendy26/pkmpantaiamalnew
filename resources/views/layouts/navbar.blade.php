@@ -13,6 +13,7 @@
             ['name' => 'Visi dan Misi', 'link' => '/profil/visi-misi'],
             ['name' => 'Struktur Organisasi', 'link' => '/profil/struktur-organisasi'],
             ['name' => 'Tenaga Kesehatan', 'link' => '/profil/tenaga-kesehatan'],
+            ['name' => 'Maklumat Pelayanan', 'link' => '/profil/maklumat-pelayanan'],
         ]],
         ['name' => 'Informasi', 'link' => '#', 'children' => [
             ['name' => 'Artikel dan Berita', 'link' => '/post'],
@@ -31,7 +32,7 @@
         ['name' => 'Layanan Lainnya', 'link' => '#', 'children' => [
             ['name' => 'Survey Kepuasan Masyarakat', 'link' => '/survey-kepuasan-masyarakat'],
             ['name' => 'PPID', 'link' => '/ppid'],
-            ['name' => 'SIPPN', 'link' => '/sippn'],
+            ['name' => 'SIPPN', 'link' => 'https://sippn.menpan.go.id/instansi/uptd-puskesmas-pantai-amal-173699'],
             ['name' => 'Pengaduan', 'link' => '/pengaduan'],
             ['name' => 'Galeri', 'link' => '/galeri'],
         ]],
@@ -56,6 +57,7 @@
     <div class="hidden lg:block overflow-hidden bg-emerald-700 text-emerald-50 transition-all duration-300 ease-out"
          :class="scrolled ? 'max-h-0 opacity-0' : 'max-h-10 opacity-100'">
         <div class="flex w-full items-center justify-between px-6 xl:px-10 py-1.5 text-xs xl:text-sm">
+            
             <div class="flex items-center gap-4 xl:gap-6">
                 <a href="mailto:pkm.pantaiamal@gmail.com" class="flex items-center gap-1.5 hover:text-white transition-colors">
                     <i data-lucide="mail" class="w-3.5 h-3.5"></i>

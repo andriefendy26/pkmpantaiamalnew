@@ -23,4 +23,9 @@ class ProfilController extends Controller
     {
         return view('pages.profil-tenaga-kesehatan');
     }
+
+    public function maklumatPelayanan()
+    {
+        return view('pages.profil-maklumat-pelayanan');
+    }
 }
