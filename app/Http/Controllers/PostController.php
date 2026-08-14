@@ -15,17 +15,24 @@ class PostController extends Controller
         ])->get();
 
         $activeCategory = $request->query('kategori');
+        $search = $request->query('search');
 
         $posts = Post::published()
             ->with(['postCategory', 'tags'])
             ->when($activeCategory, function ($query) use ($activeCategory) {
                 $query->whereHas('postCategory', fn ($q) => $q->where('slug', $activeCategory));
             })
+            ->when($search, function ($query) use ($search) {
+                $query->where(function ($q) use ($search) {
+                    $q->where('title', 'like', "%{$search}%")
+                        ->orWhere('content', 'like', "%{$search}%");
+                });
+            })
             ->orderByDesc('publishing_date')
             ->paginate(12)
-            ->withQueryString(); // supaya link pagination bawa query ?kategori=... juga
+            ->withQueryString();
 
-        return view('pages.post', compact('posts', 'categories', 'activeCategory'));
+        return view('pages.post', compact('posts', 'categories', 'activeCategory', 'search'));
     }
 
     public function show(string $slug)

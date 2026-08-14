@@ -28,14 +28,38 @@
 
     {{-- CONTENT --}}
     <div class="mx-auto max-w-7xl px-6 py-12">
+        {{-- Search --}}
+        <div class="mb-8">
+            <form method="GET" action="{{ route('post') }}" class="flex gap-2">
+                <div class="relative flex-1">
+                    <i data-lucide="search" class="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-neutral-400"></i>
+                    <input
+                        type="text"
+                        name="search"
+                        value="{{ $search ?? '' }}"
+                        placeholder="Cari artikel atau berita..."
+                        class="w-full rounded-xl border border-neutral-200 bg-white py-2.5 pl-10 pr-4 text-sm text-slate-700 placeholder-neutral-400 transition-colors focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 dark:border-neutral-700 dark:bg-neutral-900 dark:text-slate-200 dark:placeholder-neutral-500"
+                    />
+                </div>
+                <button type="submit" class="rounded-xl bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-emerald-700">
+                    Cari
+                </button>
+                @if ($search)
+                    <a href="{{ route('post', array_merge(request()->query(), ['search' => null])) }}" class="rounded-xl border border-neutral-200 px-4 py-2.5 text-sm font-medium text-neutral-600 transition-colors hover:border-emerald-300 hover:text-emerald-600 dark:border-neutral-700 dark:text-neutral-300">
+                        Reset
+                    </a>
+                @endif
+            </form>
+        </div>
+
         {{-- Filter kategori --}}
         <div class="mb-8 flex flex-wrap gap-2">
-            <a href="{{ route('post') }}"
+            <a href="{{ route('post', array_merge(request()->query(), ['kategori' => null])) }}"
             class="rounded-full px-4 py-1.5 text-sm font-medium transition-colors {{ ! $activeCategory ? 'bg-emerald-600 text-white' : 'border border-neutral-200 text-neutral-600 hover:border-emerald-300 hover:text-emerald-600 dark:border-neutral-700 dark:text-neutral-300' }}">
                 Semua
             </a>
             @foreach ($categories as $category)
-                <a href="{{ route('post', ['kategori' => $category->slug]) }}"
+                <a href="{{ route('post', array_merge(request()->query(), ['kategori' => $category->slug])) }}"
                 class="rounded-full px-4 py-1.5 text-sm font-medium transition-colors {{ $activeCategory === $category->slug ? 'bg-emerald-600 text-white' : 'border border-neutral-200 text-neutral-600 hover:border-emerald-300 hover:text-emerald-600 dark:border-neutral-700 dark:text-neutral-300' }}">
                     {{ $category->name }}
                     <span class="ml-1 {{ $activeCategory === $category->slug ? 'text-emerald-100' : 'text-neutral-400' }}">({{ $category->posts_count }})</span>
@@ -57,7 +81,7 @@
                 />
             @empty
                 <div class="col-span-full py-16 text-center text-sm text-neutral-500 dark:text-neutral-400">
-                    Belum ada post di kategori ini.
+                    Tidak ada artikel yang cocok dengan pencarian Anda.
                 </div>
             @endforelse
         </div>
