@@ -15,7 +15,7 @@
             ['name' => 'Tenaga Kesehatan', 'link' => '/profil/tenaga-kesehatan'],
         ]],
         ['name' => 'Informasi', 'link' => '#', 'children' => [
-            ['name' => 'Post', 'link' => '/post'],
+            ['name' => 'Artikel dan Berita', 'link' => '/post'],
             ['name' => 'Jadwal Pelayanan', 'link' => '/informasi/jadwal-pelayanan'],
             ['name' => 'Dokter dan Tenaga Kesehatan', 'link' => '/informasi/dokter-tenaga-kesehatan'],
             ['name' => 'Berita dan Pengumuman', 'link' => '/informasi/berita-pengumuman'],
