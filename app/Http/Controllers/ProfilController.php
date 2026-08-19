@@ -28,4 +28,9 @@ class ProfilController extends Controller
     {
         return view('pages.profil-maklumat-pelayanan');
     }
+
+    public function hakDanKewajibanPasien()
+    {
+        return view('pages.profil-hak-kewajiban');
+    }
 }

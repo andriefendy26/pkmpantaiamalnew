@@ -18,12 +18,13 @@
             ['name' => 'Struktur Organisasi', 'link' => '/profil/struktur-organisasi'],
             ['name' => 'Tenaga Kesehatan', 'link' => '/profil/tenaga-kesehatan'],
             ['name' => 'Maklumat Pelayanan', 'link' => '/profil/maklumat-pelayanan'],
+            ['name' => 'Hak dan Kewajiban Pasien', 'link' => '/profil/hak-dan-kewajiban-pasien'],
         ]],
         ['name' => 'Informasi', 'link' => '#', 'children' => [
             ['name' => 'Artikel dan Berita', 'link' => '/post'],
-            ['name' => 'Jadwal Pelayanan', 'link' => '/informasi/jadwal-pelayanan'],
-            ['name' => 'Dokter dan Tenaga Kesehatan', 'link' => '/informasi/dokter-tenaga-kesehatan'],
-            ['name' => 'Berita dan Pengumuman', 'link' => '/informasi/berita-pengumuman'],
+            // ['name' => 'Jadwal Pelayanan', 'link' => '/informasi/jadwal-pelayanan'],
+            // ['name' => 'Dokter dan Tenaga Kesehatan', 'link' => '/informasi/dokter-tenaga-kesehatan'],
+            // ['name' => 'Berita dan Pengumuman', 'link' => '/informasi/berita-pengumuman'],
             ['name' => 'Informasi Kesehatan', 'link' => '/informasi/informasi-kesehatan'],
         ]],
         ['name' => 'Statistik', 'link' => '#', 'children' => [
@@ -35,7 +36,7 @@
         ['name' => 'Portal Sistem Informasi', 'link' => '/portal'],
         ['name' => 'Layanan Lainnya', 'link' => '#', 'children' => [
             ['name' => 'Survey Kepuasan Masyarakat', 'link' => '/survey-kepuasan-masyarakat'],
-            ['name' => 'PPID', 'link' => '/ppid'],
+            // ['name' => 'PPID', 'link' => '/ppid'],
             ['name' => 'SIPPN', 'link' => 'https://sippn.menpan.go.id/instansi/uptd-puskesmas-pantai-amal-173699'],
             ['name' => 'Pengaduan', 'link' => '/pengaduan'],
             ['name' => 'Galeri', 'link' => '/galeri'],
@@ -86,6 +87,7 @@
                         <path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z"/>
                     </svg>
                 </a>
+
                 {{-- Instagram --}}
                 <a href="https://www.instagram.com/pkmpantaiamal/" target="_blank" rel="noopener" aria-label="Instagram" class="hover:text-white transition-colors">
                     <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -106,6 +108,7 @@
                         <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                     </svg>
                 </a>
+
             </div>
         </div>
     </div>

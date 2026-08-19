@@ -23,6 +23,7 @@ Route::get('/profil/visi-misi', [ProfilController::class, 'visiMisi'])->name('pr
 Route::get('/profil/struktur-organisasi', [ProfilController::class, 'strukturOrganisasi'])->name('profil.struktur');
 Route::get('/profil/tenaga-kesehatan', [ProfilController::class, 'tenagaKesehatan'])->name('profil.tenaga-kesehatan');
 Route::get('/profil/maklumat-pelayanan', [ProfilController::class, 'maklumatPelayanan'])->name('profil.maklumat');
+Route::get('/profil/hak-dan-kewajiban-pasien', [ProfilController::class, 'hakDanKewajibanPasien'])->name('profil.hak-kewajiban');
 
 Route::get('/layanan/klaster-1-manajemen', [PelayananController::class, 'klaster1'])->name('layanan.klaster1');
 Route::get('/layanan/klaster-2-ibu-anak', [PelayananController::class, 'klaster2'])->name('layanan.klaster2');

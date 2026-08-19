@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SurveyKepuasanMasyarakat;
+
 class LayananLainnyaController extends Controller
 {
     public function surveyKepuasan()
     {
-        return view('pages.survey-kepuasan-masyarakat');
+        $surveys = SurveyKepuasanMasyarakat::where('is_published', true)
+            ->orderByDesc('tahun')
+            ->get();
+
+        return view('pages.survey-kepuasan-masyarakat', compact('surveys'));
     }
 
     public function ppid()
