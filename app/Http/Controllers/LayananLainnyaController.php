@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KunjunganPasien;
+use App\Models\PenyakitTerbanyak;
 use App\Models\SurveyKepuasanMasyarakat;
+use Illuminate\Http\Request;
 
 class LayananLainnyaController extends Controller
 {
@@ -35,13 +38,54 @@ class LayananLainnyaController extends Controller
         return view('pages.statistik');
     }
 
-    public function kunjunganPasien()
+    public function kunjunganPasien(Request $request)
     {
-        return view('pages.statistik-kunjungan-pasien');
+        $years = KunjunganPasien::select('tahun')
+            ->distinct()
+            ->orderByDesc('tahun')
+            ->pluck('tahun');
+
+        $selectedYear = $request->query('tahun', $years->first());
+
+        $query = KunjunganPasien::query();
+
+        if ($selectedYear) {
+            $query->where('tahun', $selectedYear);
+        }
+
+        $data = $query->get();
+
+        $chartData = [
+            'labels' => $data->pluck('kategori')->unique()->values()->toArray(),
+            'laki_laki' => $data->where('jenis_kelamin', 'laki_laki')->pluck('jumlah')->toArray(),
+            'perempuan' => $data->where('jenis_kelamin', 'perempuan')->pluck('jumlah')->toArray(),
+        ];
+
+        return view('pages.statistik-kunjungan-pasien', compact('years', 'selectedYear', 'chartData'));
     }
 
-    public function penyakitTerbanyak()
+    public function penyakitTerbanyak(Request $request)
     {
-        return view('pages.statistik-penyakit-terbanyak');
+        $years = PenyakitTerbanyak::select('tahun')
+            ->distinct()
+            ->orderByDesc('tahun')
+            ->pluck('tahun');
+
+        $selectedYear = $request->query('tahun', $years->first());
+
+        $query = PenyakitTerbanyak::query();
+
+        if ($selectedYear) {
+            $query->where('tahun', $selectedYear);
+        }
+
+        $data = $query->orderBy('peringkat')->get();
+
+        $chartData = [
+            'labels' => $data->pluck('nama_penyakit')->toArray(),
+            'values' => $data->pluck('jumlah_kasus')->toArray(),
+        ];
+
+        return view('pages.statistik-penyakit-terbanyak', compact('years', 'selectedYear', 'chartData'));
     }
 }

@@ -48,6 +48,9 @@
     {{-- Lucide Icons --}}
     <script src="https://unpkg.com/lucide@latest"></script>
 
+    {{-- Chart.js --}}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+
     <style>
         .edu-vic-wa-nt-hand { font-family: 'Edu VIC WA NT Hand', cursive; }
         .roboto-mono { font-family: 'Roboto Mono', monospace; }
