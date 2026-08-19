@@ -13,21 +13,9 @@
                 <h1 class="edu-vic-wa-nt-hand mb-6 text-4xl font-bold tracking-tight text-slate-800 dark:text-white md:text-5xl">
                     Struktur Organisasi
                 </h1>
-                <div class="grid gap-4 sm:grid-cols-2">
-                    <div class="flex items-center gap-4 rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm dark:border-neutral-700 dark:bg-neutral-900">
-                        <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-emerald-100 text-lg font-bold text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300">D</div>
-                        <div>
-                            <p class="text-xs font-semibold uppercase tracking-wider text-neutral-400">Kepala Puskesmas</p>
-                            <p class="font-bold text-slate-800 dark:text-slate-100">drg. Desianti</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-4 rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm dark:border-neutral-700 dark:bg-neutral-900">
-                        <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-emerald-100 text-lg font-bold text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300">YN</div>
-                        <div>
-                            <p class="text-xs font-semibold uppercase tracking-wider text-neutral-400">Kepala Tata Usaha</p>
-                            <p class="font-bold text-slate-800 dark:text-slate-100">Yeni Nurlaili, S.KM</p>
-                        </div>
-                    </div>
+                <div class="content-body text-base leading-relaxed text-neutral-700 dark:text-neutral-300 space-y-4">
+                    <p>Struktur organisasi UPTD Puskesmas Pantai Amal disusun untuk mendukung penyelenggaraan upaya kesehatan masyarakat dan upaya kesehatan perorangan yang terpadu, terukur, dan berkelanjutan. Dengan kepemimpinan Kepala Puskesmas dan dukungan Kepala Tata Usaha, seluruh unit layanan bekerja sinergis untuk mewujudkan masyarakat sehat mandiri di wilayah kerja Puskesmas Pantai Amal.</p>
+                    <p>Organisasi ini mengutamakan pelayanan promotif dan preventif, didukung oleh tenaga kesehatan profesional, fasilitas yang memadai, serta kolaborasi lintas sektor guna meningkatkan akses dan mutu pelayanan kesehatan bagi seluruh masyarakat.</p>
                 </div>
             </div>
         </div>
