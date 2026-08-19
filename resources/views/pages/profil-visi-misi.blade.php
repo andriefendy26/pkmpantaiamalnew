@@ -21,10 +21,14 @@
                     <div class="rounded-2xl border border-neutral-200 bg-neutral-50 p-8 dark:border-neutral-700 dark:bg-neutral-900">
                         <h2 class="mb-3 text-xl font-bold text-slate-800 dark:text-slate-100">Misi</h2>
                         <ul class="list-disc space-y-2 pl-5 text-neutral-700 dark:text-neutral-300">
-                            <li>Meningkatkan kualitas pelayanan kesehatan tingkat pertama yang merata dan terjangkau.</li>
-                            <li>Mendorong partisipasi masyarakat dalam program kesehatan promotif dan preventif.</li>
-                            <li>Mengembangkan sumber daya manusia kesehatan yang profesional dan berintegritas.</li>
+                            <li>Meningkatkan pelayanan kesehatan yang bermutu dan terjangkau</li>
+                            <li>Meningkatkan kesadaran masyarakat untuk berperilaku hidup bersih dan sehat</li>
+                            <li>Meningkatkan sinergi dan kolaborasi lintas sektor dalam upaya meningkatkan derajat kesehatan masyarakat</li>
                         </ul>
+                    </div>
+                    <div class="rounded-2xl border border-emerald-200 bg-gradient-to-br from-emerald-50 to-teal-50 p-8 dark:border-emerald-800 dark:from-emerald-950/40 dark:to-teal-950/30">
+                        <h2 class="mb-3 text-xl font-bold text-slate-800 dark:text-slate-100">Motto</h2>
+                        <p class="text-lg italic leading-relaxed text-slate-700 dark:text-slate-200">"Kesehatan anda adalah tujuan kami"</p>
                     </div>
                 </div>
             </div>
