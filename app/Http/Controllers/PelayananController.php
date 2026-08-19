@@ -28,4 +28,9 @@ class PelayananController extends Controller
     {
         return view('pages.pelayanan-lintas');
     }
+
+    public function jadwalPelayanan()
+    {
+        return view('pages.jadwal-pelayanan');
+    }
 }

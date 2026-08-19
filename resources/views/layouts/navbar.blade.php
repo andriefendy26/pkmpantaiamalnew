@@ -7,6 +7,10 @@
             ['name' => 'Klaster 3 — Usia Dewasa dan Lanjut Usia', 'link' => '/layanan/klaster-3-dewasa-lanjut-usia'],
             ['name' => 'Klaster 4 — Penanggulangan Penyakit Menular', 'link' => '/layanan/klaster-4-penyakit-menular'],
             ['name' => 'Lintas Klaster', 'link' => '/layanan/lintas-klaster'],
+            ['name' => 'Jadwal Pelayanan', 'link' => '/jadwal-pelayanan', 'children' => [
+                ['name' => 'Loket Pendaftaran', 'link' => '/jadwal-pelayanan#loket-pendaftaran'],
+                ['name' => 'Pelayanan Pasien', 'link' => '/jadwal-pelayanan#pelayanan-pasien'],
+            ]],
         ]],
         ['name' => 'Profil', 'link' => '#', 'children' => [
             ['name' => 'Tentang Puskesmas', 'link' => '/profil/tentang'],
@@ -156,11 +160,22 @@
                              x-transition:leave-start="opacity-100 translate-y-0"
                              x-transition:leave-end="opacity-0 -translate-y-1"
                              class="absolute top-full left-0 mt-2 w-56 rounded-md border border-neutral-200 bg-white p-2 shadow-lg dark:border-neutral-700 dark:bg-neutral-900 z-50">
-                            @foreach ($item['children'] as $child)
-                                <a href="{{ $child['link'] }}" class="flex items-center rounded-md px-3 py-2 text-sm text-neutral-600 transition-colors hover:bg-emerald-50 hover:text-emerald-700 dark:text-neutral-300 dark:hover:bg-emerald-950/40 dark:hover:text-emerald-300">
-                                    {{ $child['name'] }}
-                                </a>
-                            @endforeach
+                             @foreach ($item['children'] as $child)
+                                 @if (isset($child['children']))
+                                     <div class="px-3 py-2 text-xs font-semibold text-neutral-400 uppercase tracking-wider">
+                                         {{ $child['name'] }}
+                                     </div>
+                                     @foreach ($child['children'] as $subChild)
+                                         <a href="{{ $subChild['link'] }}" class="flex items-center rounded-md pl-6 pr-3 py-2 text-sm text-neutral-600 transition-colors hover:bg-emerald-50 hover:text-emerald-700 dark:text-neutral-300 dark:hover:bg-emerald-950/40 dark:hover:text-emerald-300">
+                                             {{ $subChild['name'] }}
+                                         </a>
+                                     @endforeach
+                                 @else
+                                     <a href="{{ $child['link'] }}" class="flex items-center rounded-md px-3 py-2 text-sm text-neutral-600 transition-colors hover:bg-emerald-50 hover:text-emerald-700 dark:text-neutral-300 dark:hover:bg-emerald-950/40 dark:hover:text-emerald-300">
+                                         {{ $child['name'] }}
+                                     </a>
+                                 @endif
+                             @endforeach
                         </div>
                     </div>
                 @else
@@ -219,11 +234,24 @@
                              x-cloak
                              x-collapse
                              class="mt-2 ml-4 flex flex-col gap-2">
-                            @foreach ($item['children'] as $child)
-                                <a href="{{ $child['link'] }}" @click="mobileOpen = false" class="text-sm text-neutral-500 dark:text-neutral-400 transition-colors hover:text-emerald-600 dark:hover:text-emerald-400">
-                                    {{ $child['name'] }}
-                                </a>
-                            @endforeach
+                             @foreach ($item['children'] as $child)
+                                 @if (isset($child['children']))
+                                     <div class="mt-1 ml-4 flex flex-col gap-1">
+                                         <div class="text-xs font-semibold text-neutral-400 uppercase tracking-wider">
+                                             {{ $child['name'] }}
+                                         </div>
+                                         @foreach ($child['children'] as $subChild)
+                                             <a href="{{ $subChild['link'] }}" @click="mobileOpen = false" class="text-sm text-neutral-500 dark:text-neutral-400 transition-colors hover:text-emerald-600 dark:hover:text-emerald-400">
+                                                 {{ $subChild['name'] }}
+                                             </a>
+                                         @endforeach
+                                     </div>
+                                 @else
+                                     <a href="{{ $child['link'] }}" @click="mobileOpen = false" class="text-sm text-neutral-500 dark:text-neutral-400 transition-colors hover:text-emerald-600 dark:hover:text-emerald-400">
+                                         {{ $child['name'] }}
+                                     </a>
+                                 @endif
+                             @endforeach
                         </div>
                     </div>
                 @else

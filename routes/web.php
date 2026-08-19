@@ -29,6 +29,7 @@ Route::get('/layanan/klaster-2-ibu-anak', [PelayananController::class, 'klaster2
 Route::get('/layanan/klaster-3-dewasa-lanjut-usia', [PelayananController::class, 'klaster3'])->name('layanan.klaster3');
 Route::get('/layanan/klaster-4-penyakit-menular', [PelayananController::class, 'klaster4'])->name('layanan.klaster4');
 Route::get('/layanan/lintas-klaster', [PelayananController::class, 'lintasKlaster'])->name('layanan.lintas');
+Route::get('/jadwal-pelayanan', [PelayananController::class, 'jadwalPelayanan'])->name('layanan.jadwal-pelayanan');
 Route::get('/layanan', [LayananController::class, 'index'])->name('layanan');
 Route::get('/layanan/{slug}', [LayananController::class, 'show'])->name('layanan.show');
 
