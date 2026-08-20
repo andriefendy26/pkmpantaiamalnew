@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\KunjunganPasien;
 use App\Models\PenyakitTerbanyak;
+use App\Models\ProdukLayanan;
 use App\Models\SurveyKepuasanMasyarakat;
 use Illuminate\Http\Request;
 
@@ -87,5 +88,14 @@ class LayananLainnyaController extends Controller
         ];
 
         return view('pages.statistik-penyakit-terbanyak', compact('years', 'selectedYear', 'chartData'));
+    }
+
+    public function produkLayanan()
+    {
+        $produks = ProdukLayanan::where('is_published', true)
+            ->orderByDesc('created_at')
+            ->get();
+
+        return view('pages.produk', compact('produks'));
     }
 }

@@ -35,10 +35,11 @@
             ['name' => 'Kunjungan Pasien', 'link' => '/statistik/kunjungan-pasien'],
             ['name' => 'Penyakit Terbanyak', 'link' => '/statistik/penyakit-terbanyak'],
         ]],
+        ['name' => 'Produk', 'link' => '/produk'],
         // ['name' => 'Fitur', 'link' => '/fitur'],
         ['name' => 'FAQ', 'link' => '/faq'],
-        ['name' => 'Portal Sistem Informasi', 'link' => '/portal'],
-        ['name' => 'Layanan Lainnya', 'link' => '#', 'children' => [
+        ['name' => 'Lainnya', 'link' => '#', 'children' => [
+            ['name' => 'Portal Sistem Informasi', 'link' => '/portal'],
             ['name' => 'Survey Kepuasan Masyarakat', 'link' => '/survey-kepuasan-masyarakat'],
             // ['name' => 'PPID', 'link' => '/ppid'],
             ['name' => 'SIPPN', 'link' => 'https://sippn.menpan.go.id/instansi/uptd-puskesmas-pantai-amal-173699'],
