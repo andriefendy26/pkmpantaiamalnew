@@ -251,9 +251,9 @@
     ═══════════════════════════════════════════ --}}
     @php
         $jadwal = [
-            ['hari' => 'Senin – Kamis', 'jam' => '07.30 – 12.00', 'status' => 'buka'],
-            ['hari' => 'Jumat', 'jam' => '07.30 – 11.00', 'status' => 'buka'],
-            ['hari' => 'Sabtu', 'jam' => '07.30 – 12.00', 'status' => 'buka'],
+            ['hari' => 'Senin – Kamis', 'jam' => '07.30 – 12.30', 'status' => 'buka'],
+            ['hari' => 'Jumat', 'jam' => '07.30 – 10.00', 'status' => 'buka'],
+            ['hari' => 'Sabtu', 'jam' => '07.30 – 11.30', 'status' => 'buka'],
             ['hari' => 'Minggu', 'jam' => 'Tutup', 'status' => 'tutup'],
         ];
         // Nama hari dalam bahasa Indonesia (pengganti toLocaleDateString('id-ID'))

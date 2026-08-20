@@ -41,7 +41,6 @@
         ['name' => 'Lainnya', 'link' => '#', 'children' => [
             ['name' => 'Portal Sistem Informasi', 'link' => '/portal'],
             ['name' => 'Survey Kepuasan Masyarakat', 'link' => '/survey-kepuasan-masyarakat'],
-            // ['name' => 'PPID', 'link' => '/ppid'],
             ['name' => 'SIPPN', 'link' => 'https://sippn.menpan.go.id/instansi/uptd-puskesmas-pantai-amal-173699'],
             ['name' => 'Pengaduan', 'link' => '/pengaduan'],
             ['name' => 'Galeri', 'link' => '/galeri'],

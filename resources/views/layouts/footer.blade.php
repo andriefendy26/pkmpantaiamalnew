@@ -31,7 +31,7 @@
         </div>
 
         {{-- ── Main content ─────────────────────────────────── --}}
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 mb-12">
             {{-- Brand --}}
             <div>
                 <div class="flex items-center space-x-2 mb-4">
@@ -59,6 +59,18 @@
                     <li><a href="{{ url('/layanan/poli') }}" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Layanan Poli</a></li>
                     <li><a href="{{ url('/jadwal/dokter') }}" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Jadwal Dokter</a></li>
                     <li><a href="{{ url('/daftar-online') }}" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Daftar Online</a></li>
+                </ul>
+            </div>
+
+            {{-- Lainnya --}}
+            <div>
+                <h3 class="font-semibold mb-4 text-sm uppercase tracking-wide text-slate-800 dark:text-slate-100">Lainnya</h3>
+                <ul class="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
+                    <li><a href="{{ url('/portal') }}" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Portal Sistem Informasi</a></li>
+                    <li><a href="{{ url('/survey-kepuasan-masyarakat') }}" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Survey Kepuasan Masyarakat</a></li>
+                    <li><a href="https://sippn.menpan.go.id/instansi/uptd-puskesmas-pantai-amal-173699" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">SIPPN</a></li>
+                    <li><a href="{{ url('/pengaduan') }}" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Pengaduan</a></li>
+                    <li><a href="{{ url('/galeri') }}" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Galeri</a></li>
                 </ul>
             </div>
 
