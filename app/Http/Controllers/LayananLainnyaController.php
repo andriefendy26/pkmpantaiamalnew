@@ -80,7 +80,7 @@ class LayananLainnyaController extends Controller
             $query->where('tahun', $selectedYear);
         }
 
-        $data = $query->orderBy('peringkat')->get();
+        $data = $query->orderBy('jumlah_kasus', 'desc')->get();
 
         $chartData = [
             'labels' => $data->pluck('nama_penyakit')->toArray(),

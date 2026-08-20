@@ -26,12 +26,6 @@ class PenyakitTerbanyakForm
                     ->required()
                     ->maxLength(4)
                     ->placeholder('2025'),
-                TextInput::make('peringkat')
-                    ->label('Peringkat (1-10)')
-                    ->numeric()
-                    ->minValue(1)
-                    ->maxValue(10)
-                    ->nullable(),
             ]);
     }
 }
