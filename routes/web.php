@@ -52,6 +52,7 @@ Route::get('/statistik', [LayananLainnyaController::class, 'statistik'])->name('
 Route::get('/statistik/kunjungan-pasien', [LayananLainnyaController::class, 'kunjunganPasien'])->name('statistik.kunjungan');
 Route::get('/statistik/penyakit-terbanyak', [LayananLainnyaController::class, 'penyakitTerbanyak'])->name('statistik.penyakit');
 Route::get('/produk', [LayananLainnyaController::class, 'produkLayanan'])->name('produk');
+Route::get('/produk/{id}', [LayananLainnyaController::class, 'produkDetail'])->name('produk.detail');
 
 Route::get('/galeri', [GaleriController::class, 'index'])->name('galeri');
 Route::get('/galeri/{slug}', [GaleriController::class, 'show'])->name('galeri.show');

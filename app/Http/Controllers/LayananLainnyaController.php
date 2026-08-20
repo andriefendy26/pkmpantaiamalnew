@@ -122,4 +122,11 @@ class LayananLainnyaController extends Controller
 
         return view('pages.produk', compact('produks', 'search', 'layanan', 'layanans'));
     }
+
+    public function produkDetail($id)
+    {
+        $produk = ProdukLayanan::where('is_published', true)->findOrFail($id);
+
+        return view('pages.produk-detail', compact('produk'));
+    }
 }
