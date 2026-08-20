@@ -90,12 +90,23 @@ class LayananLainnyaController extends Controller
         return view('pages.statistik-penyakit-terbanyak', compact('years', 'selectedYear', 'chartData'));
     }
 
-    public function produkLayanan()
+    public function produkLayanan(Request $request)
     {
-        $produks = ProdukLayanan::where('is_published', true)
+        $search = $request->query('search');
+
+        $produks = ProdukLayanan::query()
+            ->where('is_published', true)
+            ->when($search, function ($query, $search) {
+                $query->where(function ($q) use ($search) {
+                    $q->where('nama_produk', 'like', "%{$search}%")
+                        ->orWhere('persyaratan', 'like', "%{$search}%")
+                        ->orWhere('waktu_penyelesaian', 'like', "%{$search}%")
+                        ->orWhere('biaya_tarif', 'like', "%{$search}%");
+                });
+            })
             ->orderByDesc('created_at')
             ->get();
 
-        return view('pages.produk', compact('produks'));
+        return view('pages.produk', compact('produks', 'search'));
     }
 }

@@ -22,6 +22,23 @@
 
     <div class="mx-auto max-w-7xl px-4 pb-16 md:pb-24">
         <div class="mx-auto max-w-5xl">
+            <div class="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <h2 class="text-2xl font-bold text-slate-800 dark:text-white">Daftar Produk Layanan</h2>
+                <form method="GET" action="{{ route('produk') }}" class="flex items-center gap-2">
+                    <div class="relative">
+                        <input type="text" name="search" value="{{ $search ?? '' }}" placeholder="Cari produk layanan..." class="rounded-lg border border-neutral-300 bg-white pl-10 pr-4 py-2 text-sm text-neutral-700 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-200 dark:placeholder-neutral-400">
+                        <svg class="absolute left-3 top-2.5 h-4 w-4 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                    @if($search)
+                        <a href="{{ route('produk') }}" class="inline-flex items-center rounded-lg border border-neutral-300 bg-white px-3 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700">
+                            Reset
+                        </a>
+                    @endif
+                </form>
+            </div>
+
             @if($produks->count() > 0)
                 <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     @foreach($produks as $produk)
