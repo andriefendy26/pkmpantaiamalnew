@@ -55,10 +55,10 @@
             @if($produks->count() > 0)
                 <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     @foreach($produks as $produk)
-                        <div class="flex flex-col rounded-2xl border border-neutral-200 bg-white shadow-sm transition-all hover:border-primary-300 hover:shadow-md dark:border-neutral-700 dark:bg-neutral-900 dark:hover:border-primary-700">
-                            <div class="p-6">
+                        <a href="{{ route('produk.detail', $produk['id_produk_layanan']) }}" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white shadow-sm transition-all hover:border-primary-300 hover:shadow-md dark:border-neutral-700 dark:bg-neutral-900 dark:hover:border-primary-700">
+                            <div class="p-6 flex flex-col h-full">
                                 <div class="mb-3">
-                                    <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100">{{ $produk['nama_layanan'] }}</h3>
+                                    <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">{{ $produk['nama_layanan'] }}</h3>
                                     @if($produk['judul_layanan'])
                                         <span class="mt-1 inline-flex items-center rounded-full bg-primary-50 px-2.5 py-0.5 text-xs font-medium text-primary-700 dark:bg-primary-950 dark:text-primary-300">
                                             {{ $produk['judul_layanan'] }}
@@ -67,18 +67,21 @@
                                 </div>
 
                                 @if(!empty($produk['logo']))
-                                    <div class="mb-4">
-                                        <img src="{{ $produk['logo'] }}" alt="{{ $produk['nama_layanan'] }}" class="w-full h-40 object-cover rounded-lg">
+                                    <div class="mb-4 flex-1">
+                                        <img src="{{ $produk['logo'] }}" alt="{{ $produk['nama_layanan'] }}" class="w-full h-48 object-cover rounded-lg">
                                     </div>
                                 @endif
 
-                                <div class="mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-700">
-                                    <span class="inline-flex items-center justify-center w-full rounded-lg bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-primary-700 hover:shadow-md">
-                                        Produk Layanan
+                                <div class="mt-auto pt-4 border-t border-neutral-200 dark:border-neutral-700">
+                                    <span class="inline-flex items-center justify-center w-full rounded-lg bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-all group-hover:bg-primary-700 group-hover:shadow-md">
+                                        Lihat Detail
+                                        <svg class="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                        </svg>
                                     </span>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     @endforeach
                 </div>
 
