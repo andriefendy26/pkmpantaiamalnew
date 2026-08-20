@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\ProdukLayanans\Schemas;
 
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -17,6 +18,28 @@ class ProdukLayananForm
                     ->label('Nama Produk Layanan')
                     ->required()
                     ->maxLength(255),
+                Select::make('layanan')
+                    ->label('Produk / Layanan')
+                    ->options([
+                        'Pelayanan UGD' => 'Pelayanan UGD',
+                        'Pencabutan keteter' => 'Pencabutan keteter',
+                        'Pemeriksaan Umum' => 'Pemeriksaan Umum',
+                        'Imunisasi' => 'Imunisasi',
+                        'Laboratorium' => 'Laboratorium',
+                        'Farmasi' => 'Farmasi',
+                        'KB/Kesehatan Reproduksi' => 'KB/Kesehatan Reproduksi',
+                        'Kesehatan Ibu & Anak' => 'Kesehatan Ibu & Anak',
+                        'Kesehatan Masyarakat' => 'Kesehatan Masyarakat',
+                        'Lainnya' => 'Lainnya',
+                    ])
+                    ->searchable()
+                    ->preload()
+                    ->nullable(),
+                Textarea::make('detail')
+                    ->label('Sistem, Mekanisme dan Prosedur')
+                    ->rows(4)
+                    ->columnSpanFull()
+                    ->nullable(),
                 Textarea::make('persyaratan')
                     ->label('Persyaratan')
                     ->rows(4)

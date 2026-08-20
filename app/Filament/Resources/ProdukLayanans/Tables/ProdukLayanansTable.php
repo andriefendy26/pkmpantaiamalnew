@@ -19,6 +19,22 @@ class ProdukLayanansTable
                     ->label('Nama Produk')
                     ->searchable()
                     ->sortable(),
+                TextColumn::make('layanan')
+                    ->label('Produk / Layanan')
+                    ->badge()
+                    ->color(fn (string $state): string => match ($state) {
+                        'Pelayanan UGD' => 'danger',
+                        'Pencabutan keteter' => 'warning',
+                        'Pemeriksaan Umum' => 'success',
+                        'Imunisasi' => 'info',
+                        'Laboratorium' => 'purple',
+                        'Farmasi' => 'pink',
+                        'KB/Kesehatan Reproduksi' => 'teal',
+                        'Kesehatan Ibu & Anak' => 'indigo',
+                        'Kesehatan Masyarakat' => 'gray',
+                        default => 'gray',
+                    })
+                    ->searchable(),
                 TextColumn::make('biaya_tarif')
                     ->label('Biaya / Tarif')
                     ->searchable(),

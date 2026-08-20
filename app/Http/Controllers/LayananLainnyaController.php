@@ -93,20 +93,33 @@ class LayananLainnyaController extends Controller
     public function produkLayanan(Request $request)
     {
         $search = $request->query('search');
+        $layanan = $request->query('layanan');
 
         $produks = ProdukLayanan::query()
             ->where('is_published', true)
             ->when($search, function ($query, $search) {
                 $query->where(function ($q) use ($search) {
                     $q->where('nama_produk', 'like', "%{$search}%")
+                        ->orWhere('layanan', 'like', "%{$search}%")
                         ->orWhere('persyaratan', 'like', "%{$search}%")
                         ->orWhere('waktu_penyelesaian', 'like', "%{$search}%")
-                        ->orWhere('biaya_tarif', 'like', "%{$search}%");
+                        ->orWhere('biaya_tarif', 'like', "%{$search}%")
+                        ->orWhere('detail', 'like', "%{$search}%");
                 });
+            })
+            ->when($layanan, function ($query, $layanan) {
+                $query->where('layanan', $layanan);
             })
             ->orderByDesc('created_at')
             ->get();
 
-        return view('pages.produk', compact('produks', 'search'));
+        $layanans = ProdukLayanan::where('is_published', true)
+            ->distinct()
+            ->pluck('layanan')
+            ->filter()
+            ->sort()
+            ->values();
+
+        return view('pages.produk', compact('produks', 'search', 'layanan', 'layanans'));
     }
 }

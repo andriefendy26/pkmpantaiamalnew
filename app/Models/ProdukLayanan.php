@@ -8,6 +8,8 @@ class ProdukLayanan extends Model
 {
     protected $fillable = [
         'nama_produk',
+        'layanan',
+        'detail',
         'persyaratan',
         'waktu_penyelesaian',
         'biaya_tarif',
