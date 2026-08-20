@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', ($produk['nama_layanan'] ?? 'Produk') . ' - Produk Layanan - UPTD Puskesmas Pantai Amal')
+@section('title', ($produk['detail']['produk_layanan']['nama'] ?? 'Produk') . ' - Produk Layanan - UPTD Puskesmas Pantai Amal')
 
 @section('content')
 <div class="min-h-screen bg-white dark:bg-neutral-950 overflow-x-hidden">
@@ -11,13 +11,13 @@
                     Layanan
                 </span>
                 <h1 class="edu-vic-wa-nt-hand mb-6 text-4xl font-bold tracking-tight text-slate-800 dark:text-white md:text-5xl">
-                    {{ $produk['nama_layanan'] }}
+                    {{ $produk['detail']['produk_layanan']['nama'] ?? ($produk['detail']['judul'] ?? 'Produk Layanan') }}
                 </h1>
                 
                 <div class="flex items-center gap-3 mb-6">
-                    @if($produk['judul_layanan'])
+                    @if($produk['detail']['judul'])
                         <span class="inline-flex items-center rounded-full bg-primary-50 px-3 py-1 text-sm font-medium text-primary-700 dark:bg-primary-950 dark:text-primary-300">
-                            {{ $produk['judul_layanan'] }}
+                            {{ $produk['detail']['judul'] }}
                         </span>
                     @endif
                 </div>
@@ -29,29 +29,67 @@
         <div class="mx-auto max-w-4xl">
             <div class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm dark:border-neutral-700 dark:bg-neutral-900">
                 <div class="space-y-8">
-                    @if(!empty($produk['logo']))
+                    @if(!empty($produk['detail']['bagan_prosedur']))
                         <div>
-                            <h2 class="mb-3 text-xl font-bold text-slate-800 dark:text-slate-100">Logo / Foto</h2>
-                            <img src="{{ $produk['logo'] }}" alt="{{ $produk['nama_layanan'] }}" class="w-full max-w-md rounded-lg object-cover">
+                            <h2 class="mb-3 text-xl font-bold text-slate-800 dark:text-slate-100">Bagan Prosedur</h2>
+                            <img src="{{ $produk['detail']['bagan_prosedur'] }}" alt="Bagan Prosedur" class="w-full max-w-md rounded-lg object-cover">
                         </div>
                         <hr class="border-neutral-200 dark:border-neutral-700">
                     @endif
 
-                    <div>
-                        <h2 class="mb-3 text-xl font-bold text-slate-800 dark:text-slate-100">Nama Layanan</h2>
-                        <div class="text-base leading-relaxed text-neutral-700 dark:text-neutral-300">
-                            {{ $produk['nama_layanan'] }}
+                    <div class="grid gap-8 md:grid-cols-2">
+                        <div>
+                            <h2 class="mb-3 text-xl font-bold text-slate-800 dark:text-slate-100">Biaya / Tarif</h2>
+                            <div class="text-2xl font-bold text-emerald-700 dark:text-emerald-300">
+                                @if(!empty($produk['detail']['biaya']['total']))
+                                    Rp {{ number_format((int) $produk['detail']['biaya']['total'], 0, ',', '.') }}
+                                @else
+                                    -
+                                @endif
+                            </div>
+                            @if(!empty($produk['detail']['biaya']['deskripsi']))
+                                <p class="mt-1 text-sm text-neutral-600 dark:text-neutral-300">{{ $produk['detail']['biaya']['deskripsi'] }}</p>
+                            @endif
+                        </div>
+
+                        <div>
+                            <h2 class="mb-3 text-xl font-bold text-slate-800 dark:text-slate-100">Waktu Penyelesaian</h2>
+                            <div class="text-base leading-relaxed text-neutral-700 dark:text-neutral-300">
+                                @if(!empty($produk['detail']['waktu']['waktu']))
+                                    {{ $produk['detail']['waktu']['waktu'] }} {{ $produk['detail']['waktu']['satuan'] }}
+                                @else
+                                    -
+                                @endif
+                            </div>
+                            @if(!empty($produk['detail']['waktu']['deskripsi']))
+                                <p class="mt-1 text-sm text-neutral-600 dark:text-neutral-300">{{ $produk['detail']['waktu']['deskripsi'] }}</p>
+                            @endif
                         </div>
                     </div>
 
-                    <hr class="border-neutral-200 dark:border-neutral-700">
-
-                    <div>
-                        <h2 class="mb-3 text-xl font-bold text-slate-800 dark:text-slate-100">Kategori</h2>
-                        <div class="text-base leading-relaxed text-neutral-700 dark:text-neutral-300">
-                            {{ $produk['judul_layanan'] ?: '-' }}
+                    @if(!empty($produk['persyaratan']) && count($produk['persyaratan']) > 0)
+                        <hr class="border-neutral-200 dark:border-neutral-700">
+                        <div>
+                            <h2 class="mb-3 text-xl font-bold text-slate-800 dark:text-slate-100">Persyaratan</h2>
+                            <ul class="list-disc space-y-2 pl-5 text-neutral-700 dark:text-neutral-300">
+                                @foreach($produk['persyaratan'] as $persyaratan)
+                                    <li>{{ $persyaratan }}</li>
+                                @endforeach
+                            </ul>
                         </div>
-                    </div>
+                    @endif
+
+                    @if(!empty($produk['prosedur']) && count($produk['prosedur']) > 0)
+                        <hr class="border-neutral-200 dark:border-neutral-700">
+                        <div>
+                            <h2 class="mb-3 text-xl font-bold text-slate-800 dark:text-slate-100">Prosedur</h2>
+                            <ul class="list-disc space-y-2 pl-5 text-neutral-700 dark:text-neutral-300">
+                                @foreach($produk['prosedur'] as $prosedur)
+                                    <li>{{ $prosedur }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                 </div>
             </div>
 

@@ -168,37 +168,33 @@ class LayananLainnyaController extends Controller
 
     public function produkDetail($id)
     {
-        $cacheKey = 'sippn.produk-layanan.all';
-        $allData = cache()->remember($cacheKey, 3600, function () {
-            $baseUrl = 'https://sippn.menpan.go.id/api/api/v1/instansi/173699/produk-layanan';
-            $limit = 15;
-            $page = 1;
-            $allItems = [];
+        $cacheKey = 'sippn.layanan-publik.' . $id;
 
-            do {
-                $url = $baseUrl . '?limit=' . $limit . '&page=' . $page;
-                $response = Http::timeout(15)
-                    ->withHeaders(['Accept' => 'application/json'])
-                    ->get($url);
+        $produk = cache()->remember($cacheKey, 3600, function () use ($id) {
+            $url = 'https://sippn.menpan.go.id/api/api/v1/layanan-publik/' . $id;
 
-                if (! $response->successful()) {
-                    break;
-                }
+            $response = Http::timeout(15)
+                ->withHeaders(['Accept' => 'application/json'])
+                ->get($url);
 
-                $json = $response->json();
-                $data = $json['data'] ?? [];
-                $meta = $json['meta'] ?? [];
+            if (! $response->successful()) {
+                return null;
+            }
 
-                $allItems = array_merge($allItems, $data);
+            $json = $response->json();
+            $layanan = $json['data']['layanan_publik'] ?? null;
 
-                $totalPages = (int) ($meta['pages'] ?? 1);
-                $page++;
-            } while ($page <= $totalPages);
+            if (! $layanan) {
+                return null;
+            }
 
-            return $allItems;
+            return [
+                'detail' => $layanan['detail'] ?? [],
+                'persyaratan' => $layanan['persyaratan'] ?? [],
+                'prosedur' => $layanan['prosedur'] ?? [],
+                'instansi' => $layanan['instansi'] ?? [],
+            ];
         });
-
-        $produk = collect($allData)->firstWhere('id_produk_layanan', (int) $id);
 
         if (! $produk) {
             abort(404);
