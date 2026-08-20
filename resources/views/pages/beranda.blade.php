@@ -125,7 +125,7 @@
     
     <section id="instagram" class="mx-auto max-w-7xl px-4 py-20">
         <div class="mb-12 text-center reveal" x-data x-intersect.once="$el.classList.add('reveal-visible')">
-            <span class="mb-3 inline-block rounded-full border border-pink-200 bg-pink-50 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-pink-700 dark:border-pink-800 dark:bg-pink-950 dark:text-pink-300">
+            <span class="mb-3 inline-block rounded-full border border-emerald-200 bg-emerald-50 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-emerald-700 dark:border-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
                 Instagram
             </span>
             <h2 class="edu-vic-wa-nt-hand text-3xl font-bold text-slate-800 dark:text-slate-100 md:text-4xl">
@@ -196,55 +196,45 @@
          3. LAYANAN
     ═══════════════════════════════════════════ --}}
     @php
-        $layanan = [
-            ['icon' => 'stethoscope', 'judul' => 'Pemeriksaan Umum', 'deskripsi' => 'Konsultasi medis, diagnosa, dan pengobatan berbagai keluhan kesehatan umum oleh dokter berpengalaman.', 'warna' => 'emerald'],
-            ['icon' => 'heart', 'judul' => 'Kesehatan Ibu & Anak', 'deskripsi' => 'Pemeriksaan kehamilan, persalinan, tumbuh kembang balita, dan layanan KB yang komprehensif.', 'warna' => 'rose'],
-            ['icon' => 'baby', 'judul' => 'Imunisasi', 'deskripsi' => 'Vaksinasi lengkap untuk bayi, anak, dan dewasa sesuai jadwal yang direkomendasikan pemerintah.', 'warna' => 'sky'],
-            ['icon' => 'flask-conical', 'judul' => 'Laboratorium', 'deskripsi' => 'Pemeriksaan darah, urine, dan sampel klinis lainnya dengan peralatan modern dan akurat.', 'warna' => 'violet'],
-            ['icon' => 'pill', 'judul' => 'Apotek', 'deskripsi' => 'Pelayanan obat resep dan obat bebas dengan tenaga apoteker terlatih dan stok obat lengkap.', 'warna' => 'amber'],
-            ['icon' => 'syringe', 'judul' => 'Tindakan Medis', 'deskripsi' => 'Penanganan luka, pemasangan infus, injeksi, dan tindakan medis minor lainnya secara profesional.', 'warna' => 'teal'],
-        ];
+    $layanan = [
+        ['icon' => 'stethoscope', 'judul' => 'Pemeriksaan Umum', 'deskripsi' => 'Konsultasi medis, diagnosa, dan pengobatan berbagai keluhan kesehatan umum oleh dokter berpengalaman.'],
+        ['icon' => 'heart', 'judul' => 'Kesehatan Ibu & Anak', 'deskripsi' => 'Pemeriksaan kehamilan, persalinan, tumbuh kembang balita, dan layanan KB yang komprehensif.'],
+        ['icon' => 'baby', 'judul' => 'Imunisasi', 'deskripsi' => 'Vaksinasi lengkap untuk bayi, anak, dan dewasa sesuai jadwal yang direkomendasikan pemerintah.'],
+        ['icon' => 'flask-conical', 'judul' => 'Laboratorium', 'deskripsi' => 'Pemeriksaan darah, urine, dan sampel klinis lainnya dengan peralatan modern dan akurat.'],
+        ['icon' => 'pill', 'judul' => 'Apotek', 'deskripsi' => 'Pelayanan obat resep dan obat bebas dengan tenaga apoteker terlatih dan stok obat lengkap.'],
+        ['icon' => 'syringe', 'judul' => 'Tindakan Medis', 'deskripsi' => 'Penanganan luka, pemasangan infus, injeksi, dan tindakan medis minor lainnya secara profesional.'],
+    ];
+@endphp
 
-        $warnaMap = [
-            'emerald' => ['bg' => 'bg-emerald-50 dark:bg-emerald-950/40', 'icon' => 'bg-emerald-100 text-emerald-600 dark:bg-emerald-900 dark:text-emerald-400', 'border' => 'border-emerald-100 dark:border-emerald-900', 'hover' => 'hover:border-emerald-300 dark:hover:border-emerald-700'],
-            'rose'    => ['bg' => 'bg-rose-50 dark:bg-rose-950/40', 'icon' => 'bg-rose-100 text-rose-600 dark:bg-rose-900 dark:text-rose-400', 'border' => 'border-rose-100 dark:border-rose-900', 'hover' => 'hover:border-rose-300 dark:hover:border-rose-700'],
-            'sky'     => ['bg' => 'bg-sky-50 dark:bg-sky-950/40', 'icon' => 'bg-sky-100 text-sky-600 dark:bg-sky-900 dark:text-sky-400', 'border' => 'border-sky-100 dark:border-sky-900', 'hover' => 'hover:border-sky-300 dark:hover:border-sky-700'],
-            'violet'  => ['bg' => 'bg-violet-50 dark:bg-violet-950/40', 'icon' => 'bg-violet-100 text-violet-600 dark:bg-violet-900 dark:text-violet-400', 'border' => 'border-violet-100 dark:border-violet-900', 'hover' => 'hover:border-violet-300 dark:hover:border-violet-700'],
-            'amber'   => ['bg' => 'bg-amber-50 dark:bg-amber-950/40', 'icon' => 'bg-amber-100 text-amber-600 dark:bg-amber-900 dark:text-amber-400', 'border' => 'border-amber-100 dark:border-amber-900', 'hover' => 'hover:border-amber-300 dark:hover:border-amber-700'],
-            'teal'    => ['bg' => 'bg-teal-50 dark:bg-teal-950/40', 'icon' => 'bg-teal-100 text-teal-600 dark:bg-teal-900 dark:text-teal-400', 'border' => 'border-teal-100 dark:border-teal-900', 'hover' => 'hover:border-teal-300 dark:hover:border-teal-700'],
-        ];
-    @endphp
+<section id="layanan" class="mx-auto max-w-7xl px-4 py-20">
+    <div class="mb-12 text-center reveal" x-data x-intersect.once="$el.classList.add('reveal-visible')">
+        <span class="mb-3 inline-block rounded-full border border-emerald-200 bg-emerald-50 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-emerald-700 dark:border-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
+            Layanan Kami
+        </span>
+        <h2 class="edu-vic-wa-nt-hand text-3xl font-bold text-slate-800 dark:text-slate-100 md:text-4xl">
+            Pelayanan Kesehatan Lengkap
+        </h2>
+        <p class="mx-auto mt-3 max-w-xl text-sm text-neutral-500 dark:text-neutral-400">
+            Kami menyediakan berbagai layanan kesehatan berkualitas untuk seluruh masyarakat Pantai Amal dan sekitarnya.
+        </p>
+    </div>
 
-    <section id="layanan" class="mx-auto max-w-7xl px-4 py-20">
-        <div class="mb-12 text-center reveal" x-data x-intersect.once="$el.classList.add('reveal-visible')">
-            <span class="mb-3 inline-block rounded-full border border-emerald-200 bg-emerald-50 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-emerald-700 dark:border-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
-                Layanan Kami
-            </span>
-            <h2 class="edu-vic-wa-nt-hand text-3xl font-bold text-slate-800 dark:text-slate-100 md:text-4xl">
-                Pelayanan Kesehatan Lengkap
-            </h2>
-            <p class="mx-auto mt-3 max-w-xl text-sm text-neutral-500 dark:text-neutral-400">
-                Kami menyediakan berbagai layanan kesehatan berkualitas untuk seluruh masyarakat Pantai Amal dan sekitarnya.
-            </p>
-        </div>
-
-        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            @foreach ($layanan as $i => $item)
-                @php $w = $warnaMap[$item['warna']]; @endphp
-                <div
-                    x-data x-intersect.once="$el.classList.add('reveal-visible')"
-                    class="reveal group rounded-2xl border {{ $w['border'] }} {{ $w['bg'] }} {{ $w['hover'] }} p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-                    style="transition-delay: {{ $i * 80 }}ms"
-                >
-                    <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl {{ $w['icon'] }}">
-                        <i data-lucide="{{ $item['icon'] }}" class="w-[22px] h-[22px]"></i>
-                    </div>
-                    <h3 class="mb-2 font-bold text-slate-800 dark:text-slate-100">{{ $item['judul'] }}</h3>
-                    <p class="text-sm leading-relaxed text-neutral-500 dark:text-neutral-400">{{ $item['deskripsi'] }}</p>
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        @foreach ($layanan as $i => $item)
+            <div
+                x-data x-intersect.once="$el.classList.add('reveal-visible')"
+                class="reveal group rounded-2xl border border-neutral-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-300 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-emerald-800"
+                style="transition-delay: {{ $i * 80 }}ms"
+            >
+                <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-slate-100 text-slate-600 transition-colors duration-300 group-hover:bg-emerald-50 group-hover:text-emerald-600 dark:bg-neutral-800 dark:text-slate-300 dark:group-hover:bg-emerald-950 dark:group-hover:text-emerald-400">
+                    <i data-lucide="{{ $item['icon'] }}" class="w-[22px] h-[22px]"></i>
                 </div>
-            @endforeach
-        </div>
-    </section>
+                <h3 class="mb-2 font-bold text-slate-800 dark:text-slate-100">{{ $item['judul'] }}</h3>
+                <p class="text-sm leading-relaxed text-neutral-500 dark:text-neutral-400">{{ $item['deskripsi'] }}</p>
+            </div>
+        @endforeach
+    </div>
+</section>
 
     {{-- ═══════════════════════════════════════════
          3. JAM OPERASIONAL
@@ -268,7 +258,7 @@
 
                 {{-- Left text --}}
                 <div class="reveal" x-data x-intersect.once="$el.classList.add('reveal-visible')">
-                    <span class="mb-3 inline-block rounded-full border border-sky-200 bg-sky-50 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-sky-700 dark:border-sky-800 dark:bg-sky-950 dark:text-sky-300">
+                    <span class="mb-3 inline-block rounded-full border border-emerald-200 bg-emerald-50 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-emerald-700 dark:border-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
                         Jam Operasional
                     </span>
                     <h2 class="edu-vic-wa-nt-hand mb-4 text-3xl font-bold text-slate-800 dark:text-slate-100 md:text-4xl">
@@ -320,7 +310,7 @@
     <section id="kontak" class="bg-slate-50 dark:bg-neutral-900">
         <div class="mx-auto max-w-7xl px-4 py-20">
             <div class="mb-12 text-center reveal" x-data x-intersect.once="$el.classList.add('reveal-visible')">
-                <span class="mb-3 inline-block rounded-full border border-teal-200 bg-teal-50 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-teal-700 dark:border-teal-800 dark:bg-teal-950 dark:text-teal-300">
+                <span class="mb-3 inline-block rounded-full border border-emerald-200 bg-emerald-50 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-emerald-700 dark:border-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
                     Kontak & Lokasi
                 </span>
                 <h2 class="edu-vic-wa-nt-hand text-3xl font-bold text-slate-800 dark:text-slate-100 md:text-4xl">
@@ -335,20 +325,15 @@
                 {{-- Contact cards --}}
                 @php
                     $kontak = [
-                        ['icon' => 'map-pin', 'label' => 'Alamat', 'value' => 'Jl. Sei Kayan, Tarakan, Kalimantan Utara', 'color' => 'emerald'],
-                        ['icon' => 'phone', 'label' => 'Telepon', 'value' => '62 851-7966-3858', 'color' => 'sky'],
-                        ['icon' => 'mail', 'label' => 'Email', 'value' => 'pkm.pantaiamal@gmail.com', 'color' => 'violet'],
-                    ];
-                    $iconColorMap = [
-                        'emerald' => 'bg-emerald-100 text-emerald-600 dark:bg-emerald-900 dark:text-emerald-400',
-                        'sky'     => 'bg-sky-100 text-sky-600 dark:bg-sky-900 dark:text-sky-400',
-                        'violet'  => 'bg-violet-100 text-violet-600 dark:bg-violet-900 dark:text-violet-400',
+                        ['icon' => 'map-pin', 'label' => 'Alamat', 'value' => 'Jl. Sei Kayan, Tarakan, Kalimantan Utara'],
+                        ['icon' => 'phone', 'label' => 'Telepon', 'value' => '62 851-7966-3858'],
+                        ['icon' => 'mail', 'label' => 'Email', 'value' => 'pkm.pantaiamal@gmail.com'],
                     ];
                 @endphp
                 <div class="flex flex-col gap-4 lg:col-span-2 reveal" x-data x-intersect.once="$el.classList.add('reveal-visible')">
                     @foreach ($kontak as $item)
                         <div class="flex items-start gap-4 rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm dark:border-neutral-700 dark:bg-neutral-800">
-                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl {{ $iconColorMap[$item['color']] }}">
+                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 dark:bg-emerald-950 dark:text-emerald-400">
                                 <i data-lucide="{{ $item['icon'] }}" class="w-[18px] h-[18px]"></i>
                             </div>
                             <div>
