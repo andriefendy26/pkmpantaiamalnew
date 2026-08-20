@@ -57,10 +57,10 @@
                     @foreach($produks as $produk)
                         <div class="flex flex-col rounded-2xl border border-neutral-200 bg-white shadow-sm transition-all hover:border-emerald-300 hover:shadow-md dark:border-neutral-700 dark:bg-neutral-900 dark:hover:border-emerald-700">
                             <div class="p-6">
-                                <div class="mb-3 flex items-start justify-between gap-2">
+                                <div class="mb-3">
                                     <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100">{{ $produk->nama_produk }}</h3>
                                     @if($produk->layanan)
-                                        <span class="inline-flex shrink-0 items-center rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-medium text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300">
+                                        <span class="mt-1 inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-medium text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300">
                                             {{ $produk->layanan }}
                                         </span>
                                     @endif
