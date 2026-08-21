@@ -19,6 +19,7 @@
             ['name' => 'Tenaga Kesehatan', 'link' => '/profil/tenaga-kesehatan'],
             ['name' => 'Maklumat Pelayanan', 'link' => '/profil/maklumat-pelayanan'],
             ['name' => 'Hak dan Kewajiban Pasien', 'link' => '/profil/hak-dan-kewajiban-pasien'],
+            ['name' => 'Kode Etik', 'link' => '/profil/kode-etik'],
         ]],
         ['name' => 'Informasi', 'link' => '#', 'children' => [
             ['name' => 'Artikel dan Berita', 'link' => '/post'],

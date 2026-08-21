@@ -33,4 +33,9 @@ class ProfilController extends Controller
     {
         return view('pages.profil-hak-kewajiban');
     }
+
+    public function kodeEtik()
+    {
+        return view('pages.profil-kode-etik');
+    }
 }
