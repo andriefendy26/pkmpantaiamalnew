@@ -7,10 +7,12 @@
             ['name' => 'Klaster 3 — Usia Dewasa dan Lanjut Usia', 'link' => '/layanan/klaster-3-dewasa-lanjut-usia'],
             ['name' => 'Klaster 4 — Penanggulangan Penyakit Menular', 'link' => '/layanan/klaster-4-penyakit-menular'],
             ['name' => 'Lintas Klaster', 'link' => '/layanan/lintas-klaster'],
+            ['name' => 'Produk Layanan', 'link' => '/produk'],
             ['name' => 'Jadwal Pelayanan', 'link' => '/jadwal-pelayanan', 'children' => [
                 ['name' => 'Loket Pendaftaran', 'link' => '/jadwal-pelayanan#loket-pendaftaran'],
                 ['name' => 'Pelayanan Pasien', 'link' => '/jadwal-pelayanan#pelayanan-pasien'],
             ]],
+
         ]],
         ['name' => 'Profil', 'link' => '#', 'children' => [
             ['name' => 'Tentang Puskesmas', 'link' => '/profil/tentang'],
@@ -36,13 +38,13 @@
             ['name' => 'Kunjungan Pasien', 'link' => '/statistik/kunjungan-pasien'],
             ['name' => 'Penyakit Terbanyak', 'link' => '/statistik/penyakit-terbanyak'],
         ]],
-        ['name' => 'Produk', 'link' => '/produk'],
         // ['name' => 'Fitur', 'link' => '/fitur'],
         ['name' => 'FAQ', 'link' => '/faq'],
         ['name' => 'Lainnya', 'link' => '#', 'children' => [
             ['name' => 'Portal Sistem Informasi', 'link' => '/portal'],
             ['name' => 'Survey Kepuasan Masyarakat', 'link' => '/survey-kepuasan-masyarakat'],
             ['name' => 'SIPPN', 'link' => 'https://sippn.menpan.go.id/instansi/uptd-puskesmas-pantai-amal-173699'],
+            ['name' => 'SP4N LAPOR', 'link' => 'https://www.lapor.go.id/'],
             ['name' => 'Pengaduan', 'link' => '/pengaduan'],
             ['name' => 'Galeri', 'link' => '/galeri'],
         ]],
