@@ -123,6 +123,12 @@
                     @endif
                 </div>
             @endif
+
+            <div class="mt-8 rounded-xl border border-primary-200 bg-primary-50 p-4 dark:border-primary-800 dark:bg-primary-950">
+                <p class="text-sm text-primary-800 dark:text-primary-200">
+                    <strong>Disclaimer:</strong> Data produk layanan pada halaman ini diambil secara otomatis dari website SIPPN. Untuk informasi lebih lanjut, silakan kunjungi <a href="https://sippn.menpan.go.id/instansi/uptd-puskesmas-pantai-amal-173699" target="_blank" rel="noopener" class="underline hover:text-primary-600 dark:hover:text-primary-400">SIPPN</a>.
+                </p>
+            </div>
         </div>
     </div>
 </div>
